@@ -25,7 +25,12 @@ code {
 
 
 /* setting the colors for buttons */
-
+.error{
+  margin-top: 2px;
+  font-weight: bold;
+  color: #2dd36f;
+  background-color: #fff;
+}
 input,
 button{
   padding: 10px;
@@ -36,6 +41,10 @@ input{
 
 button{
   cursor: pointer;
+}
+button:disabled{
+  opacity: 0.7;
+  cursor: not-allowed;
 }
 button:active{
   opacity: 0.8;

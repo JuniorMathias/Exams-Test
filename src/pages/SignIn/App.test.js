@@ -92,4 +92,44 @@ describe('Login', () => {
     expect(requiredError).toBeNull();
   })
 
+  test('given email, when empty, then disable recover password button',  () => {
+    //lib to render component app
+    render(<SignIn  />);
+
+    const recoverPasswordButton = screen.getByTestId('recover-password-button');
+    expect(recoverPasswordButton).toBeDisabled();
+  })
+
+  test('given email, when valid, then enable recover password button',  () => {
+    //lib to render component app
+    render(<SignIn  />);
+
+    const email = screen.getByTestId('email');
+    userEvent.type(email, "valid@email.com");
+    const recoverPasswordButton = screen.getByTestId('recover-password-button');
+    expect(recoverPasswordButton).not.toBeDisabled();
+  })
+
+  // refreshing page
+  test('given form invalid, then disable login button',  () => {
+    //lib to render component app
+    render(<SignIn  />);
+    const loginButton = screen.getByTestId('login-button');
+    expect(loginButton).toBeDisabled();
+  })
+
+  test('given form valid, then enable login button',  () => {
+    //lib to render component app
+    render(<SignIn  />);
+
+    const email = screen.getByTestId('email');
+    userEvent.type(email, "valid@email.com");
+
+    const password = screen.getByTestId('password');
+    await userEvent.type(password, "anyValue");
+
+    const loginButton = screen.getByTestId('login-button');
+    expect(loginButton).not.toBeDisabled();
+  })
+
 })

@@ -9,7 +9,7 @@ export const Form = styled.form`
 export const Input = styled.input`
     padding: 10px;
     width: -webkit-fill-available;
-    margin-bottom: 10px;
+    margin-top: 10px;
 `;
 
 export const Button = styled.button`

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import * as S from './styles';
 import { isEmailValid } from './../../helpers/EmailHelper';
+import { Link } from 'react-router-dom';
 
 
 function SignIn() {
@@ -54,7 +55,9 @@ function SignIn() {
              disabled={!isEmailValid(form.email.value) || !form.password.value}>
                Entrar
             </S.Button >
-            <S.Button  type="button" className='outline'>Registrar</S.Button >
+           <Link to="/register">
+             <S.Button  type="button" className='outline'>Registrar</S.Button >
+            </Link> 
           </S.Form>
         </S.Container>
       );

@@ -1,12 +1,15 @@
-import SignIn from './pages/SignIn';
 
-import SignUp from './pages/SignUp';
-
+import RoutesApp from './routes';
+import { BrowserRouter } from 'react-router-dom';
+import { db } from './firebaseConnection';
 function App() {
 
 
   return (
-    <SignIn />
+
+    <BrowserRouter>
+      <RoutesApp />
+    </BrowserRouter>
   );
 }
 

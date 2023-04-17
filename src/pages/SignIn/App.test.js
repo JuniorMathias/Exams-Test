@@ -1,6 +1,7 @@
 import React from './React';
 import { render, screen } from '@testing-library/react';
 import SignIn from './SignIn';
+import SignUp from './SignUp';
 
 
 describe('Login', () => {

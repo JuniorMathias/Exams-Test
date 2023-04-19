@@ -1,7 +1,6 @@
 import React from './React';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import SignIn from './SignIn';
-import SignUp from './SignUp';
 
 
 describe('Login', () => {
@@ -132,5 +131,29 @@ describe('Login', () => {
     const loginButton = screen.getByTestId('login-button');
     expect(loginButton).not.toBeDisabled();
   })
+
+  // Login test
+  test('given user clicks on login button, then call login',  async () => {
+    render(<SignIn  />);
+    const email = screen.getByTestId('email');
+    userEvent.type(email, "valid@email.com");
+
+    const password = screen.getByTestId('password');
+    userEvent.type(password, "anyValue");
+
+    const loginButton = screen.getByTestId('login-button');
+    userEvent.click(loginButton);
+
+    await waitFor(() => expect(authService.isLoggingIn).toBeTruthy());
+
+  })
+
+  //MOCK GETTING CONNECTION WITH FIREBASE
+  class authService {
+    isLoggingIn = false;
+    login(){
+      this.isLoggingIn = true;
+    }
+  }
 
 })

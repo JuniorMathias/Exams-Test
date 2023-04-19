@@ -1,6 +1,10 @@
+import * as S from './styles';
+
 function HomePage(){
     return (
-        <h1>Home Page</h1>
+        <S.Container>
+          <S.ButtonLogout>Log out</S.ButtonLogout>
+        </S.Container>
     );
 }
 

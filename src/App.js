@@ -1,16 +1,15 @@
+import RoutesApp from "./routes";
+import { BrowserRouter } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
-import RoutesApp from './routes';
-import { BrowserRouter } from 'react-router-dom';
-import { db } from './firebaseConnection';
-function App() {
-
-
-  return (
-
+export default function App(){
+  return(
+  <>
     <BrowserRouter>
-      <RoutesApp />
+     <ToastContainer autoClose={3000} />
+      <RoutesApp/>
     </BrowserRouter>
-  );
+  </>
+  )
 }
-
-export default App;

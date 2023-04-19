@@ -3,12 +3,12 @@ import { useState } from 'react'
 import { toast } from 'react-toastify';
 import { auth } from '../../firebaseConnection'
 import { signInWithEmailAndPassword } from 'firebase/auth'
-
 import { useNavigate } from 'react-router-dom'
 
 export default function SignIn(){
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [error, setError] = useState("");
   
   const navigate = useNavigate();
 
@@ -26,14 +26,17 @@ export default function SignIn(){
       })
       .catch(() => {
         toast.error("error ao fazer login")
+        setError("deu erro aqui");
       })
 
     }else{
       toast.warn("Por favor preencha todos os campos")
+      setError("Preencha todos os campos");
     }
 
 
   }
+  
 
 
   return(
@@ -47,14 +50,15 @@ export default function SignIn(){
         type="text"
         placeholder="Type your email..."
         value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        onChange={(e) => [setEmail(e.target.value), setError("")]}
       />
       <S.Input
         type="password"
         placeholder="******"
         value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        onChange={(e) => [setPassword(e.target.value), setError("")]}
       />
+      <S.labelError>{error}</S.labelError>
       <S.Button type="submit">Login</S.Button>
 
     </S.Form>

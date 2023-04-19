@@ -21,7 +21,7 @@ export default function Register(){
         toast.success("tudo ok");
       })
       .catch((error) => {
-        alert("Error creating" + error.message)
+        alert("já existe" + error.message)
       })
 
 

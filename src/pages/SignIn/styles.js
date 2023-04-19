@@ -48,12 +48,15 @@ export const Link = styled(Router)`
 `;
 
 
-
-
 export const Textarea = styled.textarea`
   margin-bottom: 12px;
   border: 0;
   height: 90px;
   resize: none;
   border-radius: 4;
+`;
+
+export const labelError = styled.label`
+  font-size: 14px;
+  color: red;
 `;

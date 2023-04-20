@@ -25,12 +25,7 @@ code {
 
 
 /* setting the colors for buttons */
-.error{
-  margin-top: 2px;
-  font-weight: bold;
-  color: #2dd36f;
-  background-color: #fff;
-}
+
 input,
 button{
   padding: 10px;

@@ -3,24 +3,33 @@ import { useState, useContext } from 'react';
 import { AuthContext } from '../../contexts/auth';
 //import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.png';
-import { Slide } from 'react-toastify';
 
 function Register() {
   const [ name, setName ] = useState('');
   const [email, setEmail] = useState('');
+  const [confirmEmail, setConfirmEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [birth, setBirth] = useState('');
   const [phone, setPhone] = useState('');
-  const [error, setError] = useState('');
-  const { signUp, loadingAuth } = useContext(AuthContext);
+  const [errors, setErrors] = useState('');
+
+  const { signUp, loadingAuth, error } = useContext(AuthContext);
 
 function handleSubmit(e){
   e.preventDefault();
 
-  if(name !== '' && email !== '' && password !== '' && birth !== ''){
-    signUp(email, password, name, birth,phone);
+  if(name !== '' && email !== '' && confirmEmail !== '' && password !== '' && confirmPassword !== ''&& birth !== ''){
+    if(email == confirmEmail){
+      if(password !== confirmPassword){
+        setErrors("Senhas são diferentes!");
+      }
+      signUp(email, password, name, birth,phone);
+    }else{
+      setErrors("Email são diferentes!");
+    }
   }else{
-    setError("preencha todos os dados");
+    setErrors("Preencha todos os dados obrigatórios");
   }
 }
 
@@ -63,8 +72,19 @@ function handleSubmit(e){
             <S.Input
               type="text"
               placeholder="Digite seu email"
+              autocomplete="off"
               value={email}
               onChange={ (e) => setEmail(e.target.value)} 
+            />
+          </S.Row>
+          <S.Label>Confirmar Email<i style={{color:'red'}}>*</i></S.Label>
+          <S.Row>
+            <S.Input
+              type="text"
+              placeholder="Confirme seu email"
+              autocomplete="off"
+              value={confirmEmail}
+              onChange={ (e) => setConfirmEmail(e.target.value)} 
             />
           </S.Row>
           <S.Label>Senha<i style={{color:'red'}}>*</i></S.Label>
@@ -72,10 +92,20 @@ function handleSubmit(e){
             <S.Input
               type="password"
               placeholder="*******"
+              autocomplete="off"
               value={password}
+              style={{marginRight:'10px'}}
               onChange={ (e) => setPassword(e.target.value)} 
             />
+            <S.Input
+              type="password"
+              placeholder="*******"
+              autocomplete="off"
+              value={confirmPassword}
+              onChange={ (e) => setConfirmPassword(e.target.value)} 
+            />
           </S.Row>
+          <S.labelError>{errors}</S.labelError>
           <S.labelError>{error}</S.labelError>
           <S.Button
             type="submit"

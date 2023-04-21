@@ -1,7 +1,7 @@
-import { useState, createContext, useEffect } from 'react';
+import { useState, createContext} from 'react';
 import { auth, db } from '../services/firebaseConnection';
 import { createUserWithEmailAndPassword } from 'firebase/auth'
-import { doc, getDoc, setDoc } from 'firebase/firestore'
+import { doc, setDoc } from 'firebase/firestore'
 import { useNavigate } from 'react-router-dom'
 
 export const AuthContext = createContext({});
@@ -47,13 +47,13 @@ function AuthProvider({ children }){
 
           setLoadingAuth(false);
           navigate('/home', { replace: true })
+          setError("");
           
         })
 
-
     })
     .catch((error) => {
-      setError("deu erro aqui");
+      setError("Email já está em uso");
       setLoadingAuth(false);
     })
 

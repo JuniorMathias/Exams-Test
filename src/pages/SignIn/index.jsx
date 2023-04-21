@@ -1,72 +1,59 @@
 import * as S from './styles';
-import { useState } from 'react'
-import { toast } from 'react-toastify';
-import { auth } from '../../firebaseConnection'
-import { signInWithEmailAndPassword } from 'firebase/auth'
-import { useNavigate } from 'react-router-dom'
+import { useState, useContext } from 'react';
+//import { Link } from 'react-router-dom';
+import logo from '../../assets/logo.png';
+import { AuthContext } from '../../contexts/auth'
 
 export default function SignIn(){
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [error, setError] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const { signIn, loadingAuth,error } = useContext(AuthContext);
+
+function handleSubmit(e){
+  e.preventDefault();
   
-  const navigate = useNavigate();
-
-  async function handleLogin(e){
-    e.preventDefault();
-
-    if(email !== '' && password !== ''){
-      
-      await signInWithEmailAndPassword(auth, email, password)
-      .then(() => {
-        // navegate to /admin
-        navigate('/home', { replace: true } )
-        setEmail('')
-        setPassword('')
-      })
-      .catch(() => {
-        toast.error("error ao fazer login")
-        setError("deu erro aqui");
-      })
-
-    }else{
-      toast.warn("Por favor preencha todos os campos")
-      setError("Preencha todos os campos");
-    }
-
-
+  if(email !== '' && password !== ''){
+    signIn(email, password);
+  }else{
   }
-  
+
+}
 
 
   return(
   <>
   <S.Container>
+  <S.Content>
+    <S.LoginArea>
+      <S.MyIcon src={logo} alt="Logo System" />
+    </S.LoginArea>
     <S.Title>Login</S.Title>
-    <S.Span>faça seu login</S.Span>
-
-    <S.Form onSubmit={handleLogin}>
-      <S.Input
-        type="text"
-        placeholder="Type your email..."
-        value={email}
-        onChange={(e) => [setEmail(e.target.value), setError("")]}
-      />
-      <S.Input
-        type="password"
-        placeholder="******"
-        value={password}
-        onChange={(e) => [setPassword(e.target.value), setError("")]}
-      />
+      <S.Span>faça seu login</S.Span>
+      <S.Form onSubmit={handleSubmit}>
+        <S.Input
+          type="text"
+          placeholder="Digite seu email..."
+          value={email}
+          onChange={(e) => [setEmail(e.target.value)]}
+        />
+        <S.Input
+          type="password"
+          placeholder="******"
+          value={password}
+          onChange={(e) => [setPassword(e.target.value)]}
+        />
       <S.labelError>{error}</S.labelError>
-      <S.Button type="submit">Login</S.Button>
-
+      <S.Button type="submit">{loadingAuth ? 'Carregando...' : 'Login'}</S.Button>
+      
+      <S.LinkPassword to="/">
+        Esqueceu senha ?
+      </S.LinkPassword>
     </S.Form>
     
     <S.Link to="/register">
-      Não tem conta ainda? Crie agora.
+      Ainda não possui uma conta? Cadastrar-se
     </S.Link>
-
+    </S.Content>
 
   </S.Container>
   </>

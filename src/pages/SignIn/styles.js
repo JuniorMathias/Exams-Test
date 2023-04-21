@@ -2,26 +2,53 @@ import styled from 'styled-components';
 import { Link as Router } from 'react-router-dom';
 
 export const Container = styled.div`
-  display:flex;
-  flex-direction: column;
+  display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  gap: 10px;
   height: 100vh;
+`;
+export const Content = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   width: 100%;
+  box-shadow: 0 1px 2px #0003;
+  background-image: linear-gradient(to right, #2dd36f , #121212);
+  opacity: 0.3px;
+  max-width: 750px;
+  padding: 0px 0px;
+  border-radius: 5px;
 `;
 
 export const Title = styled.h1`
   font-size: 48px;
   margin-bottom: 8px;
+  color: #fff;
 `;
 export const Span = styled.span`
   margin-bottom: 28px;
+  color: #fff;
+`;
+
+export const LoginArea = styled.div`
+    display: flex;
+    justify-content: center;
+    background-color: #181c2e;
+    width: 100%;
+`;
+
+export const MyIcon = styled.img`
+    padding: 20px;
+    width: 170px;
+    height: 130px;
 `;
 export const Form = styled.form`
+  width: 90%;
   display: flex;
   flex-direction: column;
-  width: 90%;
-  max-width: 600px;
 `;
 
 export const Input = styled.input`
@@ -30,6 +57,7 @@ export const Input = styled.input`
   height: 36px;
   border-radius: 4px;
   padding: 0 8px;
+  background-color: #e6e6e6;
 `;
 export const Button = styled.button`
   height: 36px;
@@ -46,14 +74,18 @@ export const Link = styled(Router)`
   margin: 14px 0;
   font-size: 14px;
 `;
-
-
-export const Textarea = styled.textarea`
-  margin-bottom: 12px;
-  border: 0;
-  height: 90px;
-  resize: none;
-  border-radius: 4;
+export const Label = styled.label`
+    margin-bottom: 0.5em;
+    color: #fff;
+    font-weight: bold;
+`;
+export const LinkPassword = styled(Router)`
+  color: #fff;
+  text-decoration: none;
+  margin: 14px 0;
+  font-size: 14px;
+  justify-content: end;
+  display: flex;
 `;
 
 export const labelError = styled.label`

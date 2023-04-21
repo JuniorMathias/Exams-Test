@@ -7,7 +7,6 @@ import logo from '../../assets/logo.png';
 function Register() {
   const [ name, setName ] = useState('');
   const [email, setEmail] = useState('');
-  const [confirmEmail, setConfirmEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [birth, setBirth] = useState('');
@@ -18,15 +17,12 @@ function Register() {
 
 function handleSubmit(e){
   e.preventDefault();
-
-  if(name !== '' && email !== '' && confirmEmail !== '' && password !== '' && confirmPassword !== ''&& birth !== ''){
-    if(email == confirmEmail){
-      if(password !== confirmPassword){
-        setErrors("Senhas são diferentes!");
-      }
-      signUp(email, password, name, birth,phone);
+  if(name !== '' && email !== '' && password !== '' && confirmPassword !== ''&& birth !== ''){
+    if(password !==  confirmPassword){
+      setErrors("Senhas estão diferentes");
     }else{
-      setErrors("Email são diferentes!");
+      signUp(email, password, name, birth,phone);
+      setErrors("")
     }
   }else{
     setErrors("Preencha todos os dados obrigatórios");
@@ -50,7 +46,10 @@ function handleSubmit(e){
                 onChange={ (e) => setName(e.target.value)} 
               />
             </S.Row>
-            <S.Label>Data de Nascimento<i style={{color:'red'}}>*</i></S.Label>
+            <S.Row>
+            <S.Label style={{width:'50%'}}>Data de Nascimento<i style={{color:'red'}}>*</i></S.Label>
+            <S.Label>Telefone</S.Label>
+            </S.Row>
           <S.Row>
             <S.Input
               type="date"
@@ -72,35 +71,26 @@ function handleSubmit(e){
             <S.Input
               type="text"
               placeholder="Digite seu email"
-              autocomplete="off"
               value={email}
               onChange={ (e) => setEmail(e.target.value)} 
             />
           </S.Row>
-          <S.Label>Confirmar Email<i style={{color:'red'}}>*</i></S.Label>
           <S.Row>
-            <S.Input
-              type="text"
-              placeholder="Confirme seu email"
-              autocomplete="off"
-              value={confirmEmail}
-              onChange={ (e) => setConfirmEmail(e.target.value)} 
-            />
-          </S.Row>
-          <S.Label>Senha<i style={{color:'red'}}>*</i></S.Label>
+            <S.Label style={{width:'50%'}}>Senha<i style={{color:'red'}}>*</i></S.Label>
+            <S.Label>Confirmar senha<i style={{color:'red'}}>*</i></S.Label>
+            </S.Row>
           <S.Row>
             <S.Input
               type="password"
               placeholder="*******"
-              autocomplete="off"
               value={password}
+              autoComplete="new-password"
               style={{marginRight:'10px'}}
               onChange={ (e) => setPassword(e.target.value)} 
             />
             <S.Input
               type="password"
-              placeholder="*******"
-              autocomplete="off"
+              placeholder="Confirme seu email"
               value={confirmPassword}
               onChange={ (e) => setConfirmPassword(e.target.value)} 
             />

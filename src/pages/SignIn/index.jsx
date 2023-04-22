@@ -3,7 +3,8 @@ import { useState, useContext } from 'react';
 //import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.png';
 import { AuthContext } from '../../contexts/auth'
-
+import { MdEmail } from 'react-icons/md';
+import { RiLockPasswordFill } from 'react-icons/ri';
 export default function SignIn(){
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -30,18 +31,23 @@ function handleSubmit(e){
     <S.Title>Login</S.Title>
       <S.Span>faça seu login</S.Span>
       <S.Form onSubmit={handleSubmit}>
+      <S.Row>
+        <MdEmail class="icon"/>
         <S.Input
           type="text"
           placeholder="Digite seu email..."
           value={email}
           onChange={(e) => [setEmail(e.target.value)]}
         />
+        </S.Row>
+        <S.Row>
         <S.Input
           type="password"
           placeholder="******"
           value={password}
           onChange={(e) => [setPassword(e.target.value)]}
-        />
+        /><RiLockPasswordFill class="icon"/>
+        </S.Row>
       <S.labelError>{error}</S.labelError>
       <S.Button type="submit">{loadingAuth ? 'Carregando...' : 'Login'}</S.Button>
       

@@ -16,13 +16,14 @@ code {
     monospace;
 }
 /* centering the inputs */
-.centralize {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 
+
+
+
+.icon {
+  position: absolute;
+  padding: 10px;
+}
 
 /* setting the colors for buttons */
 

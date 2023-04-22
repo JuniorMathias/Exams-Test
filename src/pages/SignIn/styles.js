@@ -39,7 +39,9 @@ export const LoginArea = styled.div`
     background-color: #181c2e;
     width: 100%;
 `;
-
+export const Row = styled.div`
+  display: flex;
+`;
 export const MyIcon = styled.img`
     padding: 20px;
     width: 170px;
@@ -55,9 +57,12 @@ export const Input = styled.input`
   border: 0;
   margin-bottom: 12px;
   height: 36px;
+  width: 100%;
   border-radius: 4px;
   padding: 0 8px;
   background-color: #e6e6e6;
+  box-sizing:border-box;
+  padding-left: 2rem;
 `;
 export const Button = styled.button`
   height: 36px;

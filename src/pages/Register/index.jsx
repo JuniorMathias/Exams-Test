@@ -1,8 +1,9 @@
 import * as S from './styles';
 import { useState, useContext } from 'react';
 import { AuthContext } from '../../contexts/auth';
-//import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.png';
+
+
 
 function Register() {
   const [ name, setName ] = useState('');

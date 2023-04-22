@@ -2,6 +2,7 @@ import * as S from './styles';
 import { useState, useContext } from 'react';
 import { AuthContext } from '../../contexts/auth';
 import logo from '../../assets/logo.png';
+import { isPasswordValid } from '/home/jorgejunior/Área de Trabalho/exam-system/src/helpers/PasswordHelper.jsx';
 
 
 
@@ -17,17 +18,22 @@ function Register() {
   const { signUp, loadingAuth, error } = useContext(AuthContext);
 
 function handleSubmit(e){
+  const regExp = isPasswordValid;
   e.preventDefault();
-  if(name !== '' && email !== '' && password !== '' && confirmPassword !== ''&& birth !== ''){
-    if(password !==  confirmPassword){
-      setErrors("Senhas estão diferentes");
+    if(name !== '' && email !== '' && password !== '' && confirmPassword !== ''&& birth !== ''){
+        if(password ===  confirmPassword){
+            if(regExp(password).length > 8){
+              signUp(email, password, name, birth,phone);
+              setErrors("")
+            }else{
+              setErrors("senha fraca")
+            }
+        }else{
+        setErrors("Senhas estão diferentes");
+        }
     }else{
-      signUp(email, password, name, birth,phone);
-      setErrors("")
+      setErrors("Preencha todos os dados obrigatórios");
     }
-  }else{
-    setErrors("Preencha todos os dados obrigatórios");
-  }
 }
 
   return (

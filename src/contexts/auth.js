@@ -21,7 +21,6 @@ function AuthProvider({ children }){
   // Cadastrar um novo user
   async function signUp(email, password, name, birth,phone){
     setLoadingAuth(true);
-
     await createUserWithEmailAndPassword(auth, email, password)
     .then( async (value) => {
         let uid = value.user.uid
@@ -50,7 +49,6 @@ function AuthProvider({ children }){
           setError("");
           
         })
-
     })
     .catch((error) => {
       setError("Email já está em uso");

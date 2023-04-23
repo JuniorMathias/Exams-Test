@@ -48,7 +48,7 @@ async function handleSubmit(e){
         /><RiLockPasswordFill class="icon"/>
         </S.Row>
       <S.labelError>{error}</S.labelError>
-      <S.Button type="submit">{loadingAuth ? 'Carregando...' : 'Login'}</S.Button>
+      <S.Button type="submit">{loadingAuth ? 'Carregando...' : 'Acessar'}</S.Button>
       
       <S.LinkPassword to="/">
         Esqueceu senha ?

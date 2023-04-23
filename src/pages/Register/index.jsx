@@ -2,7 +2,7 @@ import * as S from './styles';
 import { useState, useContext } from 'react';
 import { AuthContext } from '../../contexts/auth';
 import logo from '../../assets/logo.png';
-import { isPasswordValid } from '/home/jorgejunior/Área de Trabalho/exam-system/src/helpers/PasswordHelper.jsx';
+import { IsPasswordValid } from '/home/jorgejunior/Área de Trabalho/exam-system/src/helpers/PasswordHelper.jsx';
 
 
 
@@ -18,15 +18,15 @@ function Register() {
   const { signUp, loadingAuth, error } = useContext(AuthContext);
 
 function handleSubmit(e){
-  const regExp = isPasswordValid;
+  const regExp = /(?=^.{6,}$)(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[^A-Za-z0-9]).*/;
   e.preventDefault();
     if(name !== '' && email !== '' && password !== '' && confirmPassword !== ''&& birth !== ''){
         if(password ===  confirmPassword){
-            if(regExp(password).length > 8){
+            if(regExp.test(password).lenght >= 8){
               signUp(email, password, name, birth,phone);
               setErrors("")
             }else{
-              setErrors("senha fraca")
+              setErrors("Senha deve conter letras, números e caracteres especiais")
             }
         }else{
         setErrors("Senhas estão diferentes");
@@ -34,6 +34,13 @@ function handleSubmit(e){
     }else{
       setErrors("Preencha todos os dados obrigatórios");
     }
+}
+function getPasswordStrength() {
+  return IsPasswordValid(password);
+}
+function getPasswordStrength() {
+  const strength = IsPasswordValid(password);
+  return <span className={(strength || '').replace(/\s+/g, "")}>{strength}</span>;
 }
 
   return (
@@ -102,6 +109,7 @@ function handleSubmit(e){
               onChange={ (e) => setConfirmPassword(e.target.value)} 
             />
           </S.Row>
+          <span className='forcaSenha'>{password == ''  ? getPasswordStrength() == '' : getPasswordStrength()}</span>
           <S.labelError>{errors}</S.labelError>
           <S.labelError>{error}</S.labelError>
           <S.Button

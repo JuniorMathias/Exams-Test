@@ -87,6 +87,8 @@ export const Link = styled(Router)`
 
 export const labelError = styled.label`
   font-size: 14px;
-  color: red;
+  color: #fff;
+  width: auto;
+  background-color: red;
   font-weight: bold;
 `;

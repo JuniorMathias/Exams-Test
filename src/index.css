@@ -15,10 +15,39 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* checking strengh of password input */
+.forcaSenha {
+  font-weight: bold;
+  margin-bottom: 0.5%;
+  background-color: antiquewhite;
+  font-family:courier,arial,helvetica;
+  border-radius: 50%;
+  width: 100%;
+}
+
+.Fraquissima {
+  background-color: red;
+  padding-right: 15%;
+}
+
+.Fraca {
+  padding-right: 30%;
+  background-color: orange;
+}
+
+.Média {
+  padding-right: 50%;
+  background-color: yellow;
+}
+
+.Forte {
+  padding-right: 94%;
+  background-color: green;
+}
+
+
 /* centering the inputs */
-
-
-
 
 .icon {
   position: absolute;
@@ -27,12 +56,8 @@ code {
 
 /* setting the colors for buttons */
 
-input,
 button{
   padding: 10px;
-}
-input{
-  border: none;
 }
 
 button{
@@ -44,20 +69,4 @@ button:disabled{
 }
 button:active{
   opacity: 0.8;
-}
-
-button.clear {
-  background: none;
-  border: none;
-  color: white;
-}
-button.solid {
-  background: white;
-  border: none;
-  color: rgb(45, 211,111);
-}
-button.outline {
-  background: none;
-  border: 1px solid white;
-  color: white;
 }

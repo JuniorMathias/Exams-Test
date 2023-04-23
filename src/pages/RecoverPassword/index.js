@@ -3,18 +3,17 @@ import { useState, useContext } from 'react';
 import logo from '../../assets/logo.png';
 import { AuthContext } from '../../contexts/auth'
 import { MdEmail } from 'react-icons/md';
-import { RiLockPasswordFill } from 'react-icons/ri';
-export default function SignIn(){
+export default function RecoverPassword(){
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const { signIn, loadingAuth,error } = useContext(AuthContext);
+  const { loadingAuth,error } = useContext(AuthContext);
 
 async function handleSubmit(e){
   e.preventDefault();
   
-  if(email !== '' && password !== ''){
-    await signIn(email, password);
+  if(email !== ''){
+    alert('mandei email')
   }else{
+    alert('digite um email')
   }
 
 }
@@ -27,8 +26,8 @@ async function handleSubmit(e){
     <S.LoginArea>
       <S.MyIcon src={logo} alt="Logo System" />
     </S.LoginArea>
-    <S.Title>Login</S.Title>
-      <S.Span>faça seu login</S.Span>
+    <S.Title>Recuperar Senha</S.Title>
+      <S.Span>Digite seu email</S.Span>
       <S.Form onSubmit={handleSubmit}>
       <S.Row>
         <MdEmail className="icon"/>
@@ -39,25 +38,13 @@ async function handleSubmit(e){
           onChange={(e) => [setEmail(e.target.value)]}
         />
         </S.Row>
-        <S.Row>
-        <S.Input
-          type="password"
-          placeholder="******"
-          value={password}
-          onChange={(e) => [setPassword(e.target.value)]}
-        /><RiLockPasswordFill class="icon"/>
-        </S.Row>
+        
       <S.labelError>{error}</S.labelError>
       <S.Button type="submit">{loadingAuth ? 'Carregando...' : 'Acessar'}</S.Button>
       
-      <S.LinkPassword to="/recuperarsenha">
-        Esqueceu senha ?
-      </S.LinkPassword>
     </S.Form>
     
-    <S.Link to="/register">
-      Ainda não possui uma conta? Cadastrar-se
-    </S.Link>
+    <S.Link to="/">Já possui conta? Faça o login</S.Link>
     </S.Content>
 
   </S.Container>

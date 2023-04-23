@@ -22,7 +22,6 @@ code {
   margin-bottom: 0.5%;
   background-color: antiquewhite;
   font-family:courier,arial,helvetica;
-  border-radius: 50%;
   width: 100%;
 }
 
@@ -42,10 +41,12 @@ code {
 }
 
 .Forte {
-  padding-right: 94%;
+  padding-right: 93.6%;
   background-color: green;
 }
-
+.Muitoforte{
+  background-color: blue;
+}
 
 /* centering the inputs */
 

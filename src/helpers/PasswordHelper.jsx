@@ -9,14 +9,16 @@ export function IsPasswordValid(password) {
       };
     
       let score = 0;
-      if (password.length < 6) {
+      //fraquissima
+      if (password.length < 7) {
         return strength[1];
       }
-    
+    //fraca
       if (password.length >= 8) {
         score++;
       }
     
+      //os demais vai de acordo com oq for digitado
       if (/[a-z]/.test(password) && /[A-Z]/.test(password)) {
         score++;
       }

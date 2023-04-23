@@ -91,4 +91,5 @@ export const labelError = styled.label`
   width: auto;
   background-color: red;
   font-weight: bold;
+  margin-bottom: 0.3%;
 `;

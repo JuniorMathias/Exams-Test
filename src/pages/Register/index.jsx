@@ -22,7 +22,7 @@ function handleSubmit(e){
   e.preventDefault();
     if(name !== '' && email !== '' && password !== '' && confirmPassword !== ''&& birth !== ''){
         if(password ===  confirmPassword){
-            if(regExp.test(password).lenght >= 8){
+            if(regExp.test(password)){
               signUp(email, password, name, birth,phone);
               setErrors("")
             }else{

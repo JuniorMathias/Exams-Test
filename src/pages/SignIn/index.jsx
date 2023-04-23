@@ -1,6 +1,5 @@
 import * as S from './styles';
 import { useState, useContext } from 'react';
-//import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.png';
 import { AuthContext } from '../../contexts/auth'
 import { MdEmail } from 'react-icons/md';
@@ -10,11 +9,11 @@ export default function SignIn(){
   const [password, setPassword] = useState('');
   const { signIn, loadingAuth,error } = useContext(AuthContext);
 
-function handleSubmit(e){
+async function handleSubmit(e){
   e.preventDefault();
   
   if(email !== '' && password !== ''){
-    signIn(email, password);
+    await signIn(email, password);
   }else{
   }
 
@@ -32,7 +31,7 @@ function handleSubmit(e){
       <S.Span>faça seu login</S.Span>
       <S.Form onSubmit={handleSubmit}>
       <S.Row>
-        <MdEmail class="icon"/>
+        <MdEmail className="icon"/>
         <S.Input
           type="text"
           placeholder="Digite seu email..."

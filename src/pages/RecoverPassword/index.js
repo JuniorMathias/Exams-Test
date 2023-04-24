@@ -27,7 +27,7 @@ async function handleSubmit(e){
       <S.MyIcon src={logo} alt="Logo System" />
     </S.LoginArea>
     <S.Title>Recuperar Senha</S.Title>
-      <S.Span>Digite seu email</S.Span>
+      <S.Span>Enviaremos um email de recuperação...</S.Span>
       <S.Form onSubmit={handleSubmit}>
       <S.Row>
         <MdEmail className="icon"/>

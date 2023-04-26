@@ -109,7 +109,7 @@ function getPasswordStrength() {
               onChange={ (e) => setConfirmPassword(e.target.value)} 
             />
           </S.Row>
-          <span className='forcaSenha'>{password == ''  ? getPasswordStrength() == '' : getPasswordStrength()}</span>
+          <span className='forcaSenha'>{password === ''  ? getPasswordStrength() === '' : getPasswordStrength()}</span>
           <S.labelError>{errors}</S.labelError>
           <S.labelError>{errorRegister}</S.labelError>
           <S.Button

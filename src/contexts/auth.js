@@ -1,6 +1,6 @@
 import { useState, createContext, useEffect} from 'react';
 import { auth, db } from '../services/firebaseConnection';
-import { createUserWithEmailAndPassword, sendPasswordResetEmail, signInWithEmailAndPassword, signOut } from 'firebase/auth'
+import { createUserWithEmailAndPassword, sendPasswordResetEmail, signInWithEmailAndPassword, signOut, sendEmailVerification } from 'firebase/auth'
 import { doc, getDoc, setDoc } from 'firebase/firestore'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify';
@@ -69,14 +69,17 @@ function AuthProvider({ children }){
     setLoadingAuth(true);
     await createUserWithEmailAndPassword(auth, email, password)
     .then( async (value) => {
-        let uid = value.user.uid
+      sendEmailVerification(auth.currentUser);
 
-        await setDoc(doc(db, "users", uid), {
-          nome: name,
-          avatarUrl: null,
-          nascimento: birth,
-          telefone: phone
-        })
+      let uid = value.user.uid
+
+      await setDoc(doc(db, "users", uid), {
+        nome: name,
+        avatarUrl: null,
+        nascimento: birth,
+        telefone: phone
+      })
+
         .then( () => {
 
           let data = {
@@ -89,9 +92,8 @@ function AuthProvider({ children }){
           };
 
           setUser(data);
-
+          toast.success("Email de confirmação enviado para você")
           setLoadingAuth(false);
-          navigate('/home', { replace: true })
           
           
         })
@@ -124,7 +126,7 @@ function AuthProvider({ children }){
     await sendPasswordResetEmail(auth, email)
     .then(async (value) => {
       setLoadingAuth(false)
-      toast.success("email enviado")
+      toast.success("Email enviado")
     })
     .catch((err) => {
       setErrorRecover("Email não encontrado");

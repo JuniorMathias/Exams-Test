@@ -45,7 +45,7 @@ async function handleSubmit(e){
           placeholder="******"
           value={password}
           onChange={(e) => [setPassword(e.target.value)]}
-        /><RiLockPasswordFill class="icon"/>
+        /><RiLockPasswordFill className="icon"/>
         </S.Row>
       <S.labelError>{error}</S.labelError>
       <S.Button type="submit">{loadingAuth ? 'Carregando...' : 'Acessar'}</S.Button>

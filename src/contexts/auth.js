@@ -11,6 +11,8 @@ function AuthProvider({ children }){
   const [user, setUser] = useState(null)
   const [loadingAuth, setLoadingAuth] = useState(false);
   const [error, setError] = useState('');
+  const [errorRegister, setErrorRegister] = useState('');
+  const [errorRecover, setErrorRecover] = useState('');
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
@@ -56,10 +58,9 @@ function AuthProvider({ children }){
       
     })
     .catch((err) => {
-      setError("Login ou senha incorreto!");
       setLoadingAuth(false);
+      setError("Login ou senha incorreto!");
     })
-    setError("");
   }
 
 
@@ -91,12 +92,12 @@ function AuthProvider({ children }){
 
           setLoadingAuth(false);
           navigate('/home', { replace: true })
-          setError("");
+          
           
         })
     })
     .catch((error) => {
-      setError("Email já está em uso");
+      setErrorRegister("Email já está em uso");
       setLoadingAuth(false);
     })
 
@@ -126,7 +127,7 @@ function AuthProvider({ children }){
       toast.success("email enviado")
     })
     .catch((err) => {
-      setError("Email não encontrado");
+      setErrorRecover("Email não encontrado");
       setLoadingAuth(false);
     })
   }
@@ -143,7 +144,9 @@ function AuthProvider({ children }){
         recoverPassword,
         loadingAuth,
         loading,
-        error
+        error,
+        errorRegister,
+        errorRecover
       }}
     >
       {children}

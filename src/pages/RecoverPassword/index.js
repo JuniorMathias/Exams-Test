@@ -6,7 +6,7 @@ import { MdEmail } from 'react-icons/md';
 export default function RecoverPassword(){
   const [email, setEmail] = useState('');
   const [errors, setErrors] = useState('');
-  const { recoverPassword,loadingAuth,error } = useContext(AuthContext);
+  const { recoverPassword,loadingAuth,errorRecover } = useContext(AuthContext);
 
 async function handleSubmit(e){
   e.preventDefault();
@@ -41,7 +41,7 @@ async function handleSubmit(e){
         />
         </S.Row>
         <S.labelError>{errors}</S.labelError>
-        <S.labelError>{error}</S.labelError>
+        <S.labelError>{errorRecover}</S.labelError>
       <S.Button type="submit">{loadingAuth ? 'Carregando...' : 'Acessar'}</S.Button>
       
     </S.Form>

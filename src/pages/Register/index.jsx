@@ -15,7 +15,7 @@ function Register() {
   const [phone, setPhone] = useState('');
   const [errors, setErrors] = useState('');
 
-  const { signUp, loadingAuth, error } = useContext(AuthContext);
+  const { signUp, loadingAuth, errorRegister } = useContext(AuthContext);
 
 function handleSubmit(e){
   const regExp = /(?=^.{6,}$)(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[^A-Za-z0-9]).*/;
@@ -111,7 +111,7 @@ function getPasswordStrength() {
           </S.Row>
           <span className='forcaSenha'>{password == ''  ? getPasswordStrength() == '' : getPasswordStrength()}</span>
           <S.labelError>{errors}</S.labelError>
-          <S.labelError>{error}</S.labelError>
+          <S.labelError>{errorRegister}</S.labelError>
           <S.Button
             type="submit"
           >

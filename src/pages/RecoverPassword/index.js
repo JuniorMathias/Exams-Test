@@ -5,15 +5,17 @@ import { AuthContext } from '../../contexts/auth'
 import { MdEmail } from 'react-icons/md';
 export default function RecoverPassword(){
   const [email, setEmail] = useState('');
-  const { loadingAuth,error } = useContext(AuthContext);
+  const [errors, setErrors] = useState('');
+  const { recoverPassword,loadingAuth,error } = useContext(AuthContext);
 
 async function handleSubmit(e){
   e.preventDefault();
   
   if(email !== ''){
-    alert('mandei email')
+    recoverPassword(email);
+    setEmail("");
   }else{
-    alert('digite um email')
+    setErrors("Digite um email");
   }
 
 }
@@ -38,8 +40,8 @@ async function handleSubmit(e){
           onChange={(e) => [setEmail(e.target.value)]}
         />
         </S.Row>
-        
-      <S.labelError>{error}</S.labelError>
+        <S.labelError>{errors}</S.labelError>
+        <S.labelError>{error}</S.labelError>
       <S.Button type="submit">{loadingAuth ? 'Carregando...' : 'Acessar'}</S.Button>
       
     </S.Form>

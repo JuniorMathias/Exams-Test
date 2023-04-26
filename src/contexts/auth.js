@@ -1,6 +1,6 @@
 import { useState, createContext, useEffect} from 'react';
 import { auth, db } from '../services/firebaseConnection';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth'
+import { createUserWithEmailAndPassword, sendPasswordResetEmail, signInWithEmailAndPassword, signOut } from 'firebase/auth'
 import { doc, getDoc, setDoc } from 'firebase/firestore'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify';
@@ -27,7 +27,7 @@ function AuthProvider({ children }){
     loadUser();
   }, [])
 
-  async function signIn(email, password,error){
+  async function signIn(email, password){
     setLoadingAuth(true);
 
     await signInWithEmailAndPassword(auth, email, password)
@@ -59,6 +59,7 @@ function AuthProvider({ children }){
       setError("Login ou senha incorreto!");
       setLoadingAuth(false);
     })
+    setError("");
   }
 
 
@@ -115,6 +116,21 @@ function AuthProvider({ children }){
 
   }
 
+  //recuperar senha
+
+  async function recoverPassword(email){
+    setLoadingAuth(true);
+    await sendPasswordResetEmail(auth, email)
+    .then(async (value) => {
+      setLoadingAuth(false)
+      toast.success("email enviado")
+    })
+    .catch((err) => {
+      setError("Email não encontrado");
+      setLoadingAuth(false);
+    })
+  }
+
 
   return(
     <AuthContext.Provider 
@@ -124,6 +140,7 @@ function AuthProvider({ children }){
         signIn,
         signUp,
         logout,
+        recoverPassword,
         loadingAuth,
         loading,
         error

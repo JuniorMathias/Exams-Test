@@ -65,46 +65,50 @@ function AuthProvider({ children }){
 
 
   // Cadastrar um novo user
-  async function signUp(email, password, name, birth,phone){
+  async function signUp(email, password, name, birth, phone){
     setLoadingAuth(true);
     await createUserWithEmailAndPassword(auth, email, password)
-    .then( async (value) => {
-      sendEmailVerification(auth.currentUser);
-
-      let uid = value.user.uid
-
-      await setDoc(doc(db, "users", uid), {
-        nome: name,
-        avatarUrl: null,
-        nascimento: birth,
-        telefone: phone
+      .then(async (value) => {
+        sendEmailVerification(auth.currentUser);
+  
+        let uid = value.user.uid;
+  
+        // Adicione um listener para o estado de autenticação do usuário
+        auth.onAuthStateChanged((user) => {
+          if (user) {
+              setDoc(doc(db, "users", uid), {
+                nome: name,
+                avatarUrl: null,
+                nascimento: birth,
+                telefone: phone
+              })
+                .then(() => {
+                  let data = {
+                    uid: uid,
+                    nome: name,
+                    email: value.user.email,
+                    avatarUrl: null,
+                    nascimento: birth,
+                    telefone: phone
+                  };
+  
+                  setUser(data);
+                  toast.success("Email de confirmação enviado para você")
+                  setLoadingAuth(false);
+                })
+                .catch((error) => {
+                  console.log(error);
+                });
+            
+          }
+        });
       })
-
-        .then( () => {
-
-          let data = {
-            uid: uid,
-            nome: name,
-            email: value.user.email,
-            avatarUrl: null,
-            nascimento: birth,
-            telefone: phone
-          };
-
-          setUser(data);
-          toast.success("Email de confirmação enviado para você")
-          setLoadingAuth(false);
-          
-          
-        })
-    })
-    .catch((error) => {
-      setErrorRegister("Email já está em uso");
-      setLoadingAuth(false);
-    })
-
+      .catch((error) => {
+        setErrorRegister("Email já está em uso");
+        setLoadingAuth(false);
+      })
   }
-
+  
   //convertendo para string 
   function storageUser(data){
     localStorage.setItem('@ticketsPRO', JSON.stringify(data))

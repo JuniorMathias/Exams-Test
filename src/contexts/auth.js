@@ -29,13 +29,21 @@ function AuthProvider({ children }){
     loadUser();
   }, [])
 
+  
   async function signIn(email, password){
     setLoadingAuth(true);
-
+  
     await signInWithEmailAndPassword(auth, email, password)
     .then(async (value) => {
       let uid = value.user.uid
-
+  
+      // Verifica se o email do usuário foi verificado
+      if (!value.user.emailVerified) {
+        setLoadingAuth(false);
+        setError("Por favor, verifique seu email antes de fazer login.");
+        return;
+      }
+  
       //acessar o documento
       const docRef = doc(db, "users", uid);
       //pegar os dados, retorno
@@ -62,46 +70,43 @@ function AuthProvider({ children }){
       setError("Login ou senha incorreto!");
     })
   }
+  
 
 
   // Cadastrar um novo user
   async function signUp(email, password, name, birth, phone){
     setLoadingAuth(true);
+    
     await createUserWithEmailAndPassword(auth, email, password)
-      .then(async (value) => {
+    .then(async (value) => {
         sendEmailVerification(auth.currentUser);
   
         let uid = value.user.uid;
-  
-        // Adicione um listener para o estado de autenticação do usuário
-        auth.onAuthStateChanged((user) => {
-          if (user) {
-              setDoc(doc(db, "users", uid), {
+       
+          setDoc(doc(db, "users", uid), {
+            nome: name,
+            avatarUrl: null,
+            nascimento: birth,
+            telefone: phone
+          })
+            .then(() => {
+              let data = {
+                uid: uid,
                 nome: name,
+                email: value.user.email,
                 avatarUrl: null,
                 nascimento: birth,
                 telefone: phone
-              })
-                .then(() => {
-                  let data = {
-                    uid: uid,
-                    nome: name,
-                    email: value.user.email,
-                    avatarUrl: null,
-                    nascimento: birth,
-                    telefone: phone
-                  };
-  
-                  setUser(data);
-                  toast.success("Email de confirmação enviado para você")
-                  setLoadingAuth(false);
-                })
-                .catch((error) => {
-                  console.log(error);
-                });
-            
-          }
-        });
+              };
+
+              setUser(data);
+              toast.success("Email de confirmação enviado para você")
+              setLoadingAuth(false);
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        
       })
       .catch((error) => {
         setErrorRegister("Email já está em uso");

@@ -16,16 +16,20 @@ function AuthProvider({ children }){
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
-  useEffect(() => {
+ useEffect(() => {
     async function loadUser(){
-      const storageUser = localStorage.getItem('@ticketsPro')
+      const storageUser = localStorage.getItem('@ticketsPRO')
 
       if(storageUser){
         setUser(JSON.parse(storageUser))
         setLoading(false);
       }
+
+
       setLoading(false);
+
     }
+
     loadUser();
   }, [])
 
@@ -61,7 +65,7 @@ function AuthProvider({ children }){
       storageUser(data);
       setLoadingAuth(false);
       toast.success("Bem-vindo(a) de volta!")
-      navigate('/home', { replace: true })
+      navigate("/home")
       setError("");
       
     })
@@ -77,9 +81,9 @@ function AuthProvider({ children }){
   async function signUp(email, password, name, birth, phone){
     setLoadingAuth(true);
     
+    sendEmailVerification(auth.currentUser);
     await createUserWithEmailAndPassword(auth, email, password)
     .then(async (value) => {
-        sendEmailVerification(auth.currentUser);
   
         let uid = value.user.uid;
        
@@ -119,14 +123,12 @@ function AuthProvider({ children }){
     localStorage.setItem('@ticketsPRO', JSON.stringify(data))
   }
 
-
 // função de logout
-  async function logout(){
-    await signOut(auth);
-    localStorage.removeItem('@ticketsPRO');
-    setUser(null);
-
-  }
+async function logout(){
+  await signOut(auth);
+  localStorage.removeItem('@ticketsPRO');
+  setUser(null);
+}
 
   //recuperar senha
 

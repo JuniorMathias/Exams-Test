@@ -15,17 +15,17 @@ export default function Header(){
             <S.CoverAvatar>
                 <S.Avatar src={user.avatarUrl == null ? avatar : user.avatarUrl } alt="Avatar" />
             </S.CoverAvatar>
-        <S.Link to="/dashboard">
+        <S.Link to="/home">
             <FiHome color='#fff' size={24} />
-            Dashboard
+            Home
         </S.Link>
         <S.Link to="/Customers">
             <FiUser color='#fff' size={24} />
             Customers
         </S.Link>
-        <S.Link to="/profile">
+        <S.Link to="/perfil">
             <FiSettings color='#fff' size={24} />
-            Settings
+            Configurações
         </S.Link>
         </S.SideBar>
       </> 

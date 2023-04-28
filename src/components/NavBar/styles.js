@@ -5,15 +5,12 @@ import cover from '../../assets/cover.png';
 export const SideBar = styled.div`
     margin: 0;
     padding: 0;
-    width: 200px;
+    width: 250px;
     background-color: #181C2e;
     position: fixed;
     height: 100%;
     overflow: auto;
-    @media screen and (max-width: 1000px){
-        width: 150px;
-    }
-    @media screen and (max-width: 750px){
+    @media screen and (max-width: 700px){
         width: 100%;
         height: auto;
         position: relative;
@@ -71,3 +68,4 @@ export const Link = styled(Router)`
           }
     }
 `;
+

@@ -44,7 +44,7 @@ export const Row = styled.div`
 `;
 export const MyIcon = styled.img`
     padding: 20px;
-    width: 170px;
+    width: 150px;
     height: 130px;
 `;
 export const Form = styled.form`

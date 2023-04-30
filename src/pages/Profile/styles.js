@@ -11,10 +11,7 @@ export const Container = styled.div`
 `;
 export const Content = styled.div`
   display: flex;
-  align-items: center;
   justify-content: center;
-  // aqui tem que mudar para colocar lado a lado
-  flex-direction: column;
   width: 100%;
   box-shadow: 0 1px 2px #0003;
   background-image: linear-gradient(to right, #2dd36f , #121212);
@@ -30,16 +27,14 @@ export const Form = styled.form`
     
 `;
 export const Row = styled.div`
-  display: flex;
 `;
 
 export const LabelAvatar = styled.label`
-    width: 280px;
+    width: 380px;
     height: 280px;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
     cursor: pointer;
 `;
 export const FormInputFile = styled.input`
@@ -56,7 +51,6 @@ export const Label = styled.label`
     margin-bottom: 0.5em;
     font-size: 1.4em;
     font-weight: bold;
-    display: flex;
     color: #fff;
 `;
 
@@ -70,12 +64,7 @@ export const Span = styled.span`
         transform: scale(1.4);
     }
 `;
-export const FormInput = styled.input`
-    margin-bottom: 1em;
-    padding: .7em;
-    border:0;
-    border-radius: 5px;
-`;
+
 export const Input = styled.input`
   border: 0;
   width: 100%;
@@ -85,15 +74,15 @@ export const Input = styled.input`
   padding: 0 8px;
 `;
 export const Button = styled.button`
-    padding: 8px 40px 8px 40px;
-    background-color: #121212;
-    color: #fff;
-    border-radius: 5px;
-    font-size: 1.5em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 32%;
+  height: 36px;
+  border: 0;
+  border-radius: 4px;
+  background-color: #3366ff;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 2%;
+  width: 50%;
 `;
 
 export const labelError = styled.label`

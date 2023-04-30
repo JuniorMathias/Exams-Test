@@ -17,7 +17,7 @@ function RoutesApp() {
         <Route path="/register" element={<Register />} />
         <Route path="/recuperarsenha" element={<RecoverPassword />} />
         <Route path="/home" element={<Private><HomePage /> </Private>} />
-        <Route exact path="/profile" element={<Private><Profile /> </Private>} />
+        <Route exact path="/perfil" element={<Private><Profile /> </Private>} />
 
       </Routes>
   );

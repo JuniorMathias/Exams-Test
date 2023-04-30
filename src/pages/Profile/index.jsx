@@ -21,7 +21,7 @@ export default function Profile(){
 
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [birth, setBirth] = useState('');
+  const [birth, setBirth] = useState(user && user.nascimento);
   const [phone, setPhone] = useState('');
   const [errors, setErrors] = useState('');
 
@@ -77,17 +77,14 @@ async function handleUpload(){
                 </S.LabelAvatar>
             <S.Row>
                 <S.Label>Name</S.Label>
-            <S.FormInput
+            <S.Input
                 type="text"
                 value={name}
                 onChange={ (e) => setName(e.target.value)} 
                 />
             </S.Row>
-            <S.Row>
-            <S.Label style={{width:'50%'}}>Data de Nascimento<i style={{color:'red'}}>*</i></S.Label>
-            <S.Label>Telefone</S.Label>
-            </S.Row>
           <S.Row>
+          <S.Label style={{width:'50%'}}>Data de Nascimento<i style={{color:'red'}}>*</i></S.Label>
             <S.Input
               type="date"
               label="Data de Nascimento"
@@ -95,7 +92,9 @@ async function handleUpload(){
               onChange={ (e) => setBirth(e.target.value)}
               style={{marginRight:'10px'}}
             />
-            
+            </S.Row>
+            <S.Row>
+            <S.Label>Telefone</S.Label>
             <S.Input
               type="number"
               placeholder="Telefone"
@@ -103,10 +102,10 @@ async function handleUpload(){
               onChange={ (e) => setPhone(e.target.value)} 
             />
           </S.Row>
-          <S.Label>Email<i style={{color:'red'}}>*</i></S.Label>
+         
           <S.Row>
-          <S.Label>Email</S.Label>
-            <S.FormInput
+          <S.Label>Email<i style={{color:'red'}}>*</i></S.Label>
+            <S.Input
                 type="text"
                 value={email}
                 disabled={true}
@@ -115,9 +114,6 @@ async function handleUpload(){
           </S.Row>
           <S.Row>
             <S.Label style={{width:'50%'}}>Senha<i style={{color:'red'}}>*</i></S.Label>
-            <S.Label>Confirmar senha<i style={{color:'red'}}>*</i></S.Label>
-            </S.Row>
-          <S.Row>
             <S.Input
               type="password"
               placeholder="*******"
@@ -126,6 +122,10 @@ async function handleUpload(){
               style={{marginRight:'10px'}}
               onChange={ (e) => setPassword(e.target.value)} 
             />
+            
+            </S.Row>
+          <S.Row>
+          <S.Label>Confirmar senha<i style={{color:'red'}}>*</i></S.Label>
             <S.Input
               type="password"
               placeholder="Confirme seu email"

@@ -7,7 +7,10 @@ import { FiHome, FiUser, FiSettings  } from 'react-icons/fi';
 
 export default function Header(){
     //GETTING THE DATA FROM USERS I CAN USE USER.NAME EX
-    const { user } = useContext(AuthContext);
+    const { user,logout } = useContext(AuthContext);
+    async function handleLogout(){
+        await logout();
+      }
 
     return(
       <> 
@@ -26,6 +29,10 @@ export default function Header(){
         <S.Link to="/perfil">
             <FiSettings color='#fff' size={24} />
             Configurações
+        </S.Link>
+        <S.Link onClick={handleLogout}>
+            <FiSettings color='#fff' size={24} />
+            Sair
         </S.Link>
         </S.SideBar>
       </> 

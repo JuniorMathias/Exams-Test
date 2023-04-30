@@ -15,6 +15,11 @@ export const SideBar = styled.div`
         height: auto;
         position: relative;
     }
+    @media screen and (max-width: 950px){
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
 `;
 export const CoverAvatar = styled.div`
     background: url(${cover});
@@ -25,7 +30,7 @@ export const CoverAvatar = styled.div`
     height: 150px;
     padding-top: 30px;
     @media screen and (max-width: 750px){
-        // display: none;
+        display: none;
         margin-left: 0;
     }
 `;
@@ -43,7 +48,7 @@ export const Avatar = styled.img`
 export const Link = styled(Router)`
     display: block;
     color: rgba(255,255,255, 0.7);
-    padding: 16px;
+    padding: 20px;
     margin: 0;
     text-decoration: none;
     display: flex;

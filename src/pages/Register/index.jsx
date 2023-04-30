@@ -104,7 +104,7 @@ function getPasswordStrength() {
             />
             <S.Input
               type="password"
-              placeholder="Confirme seu email"
+              placeholder="Confirme sua senha"
               value={confirmPassword}
               onChange={ (e) => setConfirmPassword(e.target.value)} 
             />

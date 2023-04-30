@@ -1,5 +1,5 @@
-
 import styled from 'styled-components';
+import { Link as Router } from 'react-router-dom';
 
 export const Container = styled.div`
   display: flex;
@@ -83,6 +83,12 @@ export const Button = styled.button`
   font-weight: bold;
   margin-bottom: 2%;
   width: 50%;
+`;
+export const Link = styled(Router)`
+  color: #fff;
+  text-decoration: none;
+  margin: 14px 0;
+  font-size: 14px;
 `;
 
 export const labelError = styled.label`

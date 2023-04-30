@@ -12,17 +12,14 @@ import { FiUpload } from 'react-icons/fi';
 
 
 export default function Profile(){
-  const { user,signOut, setUser, storageUser, loadingAuth } = useContext(AuthContext);
+  const { user,loadingAuth } = useContext(AuthContext);
 
   const [name, setName] = useState(user && user.nome);
   const [email, setEmail] = useState(user && user.email);
   const [avatarUrl, setAvatarUrl] = useState(user && user.avatarUrl);
-  const [imageAvatar, setImageAvatar] = useState(null);
-
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
   const [birth, setBirth] = useState(user && user.nascimento);
-  const [phone, setPhone] = useState('');
+  const [phone, setPhone] = useState(user.telefone);
+  const [imageAvatar, setImageAvatar] = useState(null);
   const [errors, setErrors] = useState('');
 
 //  preview before upload it
@@ -112,27 +109,6 @@ async function handleUpload(){
                 style={{ cursor: 'not-allowed'}}
                 />
           </S.Row>
-          <S.Row>
-            <S.Label style={{width:'50%'}}>Senha<i style={{color:'red'}}>*</i></S.Label>
-            <S.Input
-              type="password"
-              placeholder="*******"
-              value={password}
-              autoComplete="new-password"
-              style={{marginRight:'10px'}}
-              onChange={ (e) => setPassword(e.target.value)} 
-            />
-            
-            </S.Row>
-          <S.Row>
-          <S.Label>Confirmar senha<i style={{color:'red'}}>*</i></S.Label>
-            <S.Input
-              type="password"
-              placeholder="Confirme seu email"
-              value={confirmPassword}
-              onChange={ (e) => setConfirmPassword(e.target.value)} 
-            />
-          </S.Row>
           
           <S.labelError>{errors}</S.labelError>
           <S.Button
@@ -142,6 +118,9 @@ async function handleUpload(){
           </S.Button>
         </S.Form>
             </S.Content>
+            <S.Row>
+          <S.Link to="/atualizarsenha">Clique aqui para atualizar sua senha</S.Link>
+          </S.Row>
         </S.Container>
       </>
   )

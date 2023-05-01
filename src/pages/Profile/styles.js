@@ -48,7 +48,6 @@ export const AvatarImage = styled.div`
     object-fit: cover;
 `;
 export const Label = styled.label`
-    margin-bottom: 0.5em;
     font-size: 1.4em;
     font-weight: bold;
     color: #fff;
@@ -81,7 +80,7 @@ export const Button = styled.button`
   color: #fff;
   font-size: 18px;
   font-weight: bold;
-  margin-bottom: 2%;
+  margin-bottom: 12px;
   width: 50%;
 `;
 export const Link = styled(Router)`
@@ -92,13 +91,5 @@ export const Link = styled(Router)`
   font-weight: bold;
 `;
 
-export const labelError = styled.label`
-  font-size: 14px;
-  color: #fff;
-  width: auto;
-  background-color: red;
-  font-weight: bold;
-  margin-bottom: 0.3%;
-`;
 
 

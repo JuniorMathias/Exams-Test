@@ -16,7 +16,7 @@ export const SideBar = styled.div`
         position: relative;
     }
     @media screen and (max-width: 950px){
-        width: 100%;
+        width: 120%;
         height: auto;
         position: relative;
     }

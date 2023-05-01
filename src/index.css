@@ -54,6 +54,9 @@ code {
   position: absolute;
   padding: 10px;
 }
+.profilePic{
+  border-radius: 50%;
+}
 
 /* setting the colors for buttons */
 

@@ -59,12 +59,16 @@ async function handleUpload(){
       await updateDoc(docRef, {
         avatarUrl: urlFoto,
         nome: name,
+        nascimento: birth,
+        telefone: phone
       })
       .then(() => {
         let data = {
           ...user,
           nome: name,
           avatarUrl: urlFoto,
+          nascimento: birth,
+          telefone: phone
         }
         setLoadingAuth(false);
         setUser(data);
@@ -79,14 +83,16 @@ async function handleUpload(){
 
 }
 
+//updating the name
   async function handleSave(e){
    setLoadingAuth(true);
    e.preventDefault();
 
-   if(imageAvatar === null && name !== ''){
+   if(imageAvatar === null && name !== '' && birth !== ''){
     const docRef = doc(db,"users", user.uid);
     await updateDoc(docRef, {
-      nome: name
+      nome: name,
+      nascimento: birth
     })
     .then(()=> {
       let data = {
@@ -98,11 +104,18 @@ async function handleUpload(){
       storageUser(data);
       toast.success("Atualizado com sucesso!")
     })
-   }else if(name !== '' && imageAvatar !== null){
+   }else if(name !== '' && imageAvatar !== null && birth !== ''){
      handleUpload();
-   }
+   }else{
+      toast.error("Preencha todos os dados obrigatórios")
+      setLoadingAuth(false);
+  }
 
   }
+  
+
+  
+
 
   return(
       <>
@@ -121,9 +134,9 @@ async function handleUpload(){
                   />
                   <S.AvatarImage>
                   { avatarUrl == null ? 
-                    <img src={avatar} width={250} height={250} alt="profile pic" />
+                    <img src={avatar} width={250} height={250} alt="profile pic" className='profilePic'/>
                      :
-                     <img src={avatarUrl} width="250" height="250" alt="profile pic" />
+                     <img src={avatarUrl} width="250" height="250" alt="profile pic" className='profilePic'/>
                   }
                   </S.AvatarImage>
                 </S.LabelAvatar>
@@ -164,10 +177,9 @@ async function handleUpload(){
                 style={{ cursor: 'not-allowed'}}
                 />
           </S.Row>
-          
-          <S.labelError>{errors}</S.labelError>
           <S.Button
             type="submit"
+            style={{ width: '105%'}}
           >
             {loadingAuth ? 'Atualizando...' : 'Salvar'}
           </S.Button>

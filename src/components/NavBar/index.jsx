@@ -2,8 +2,10 @@ import * as S from './styles';
 import { AuthContext } from '../../contexts/auth';
 import { useContext } from 'react';
 import avatar from '../../assets/avatar.png';
-import { FiHome, FiUser, FiSettings } from 'react-icons/fi';
+import { FiHome, FiUser } from 'react-icons/fi';
 import { ImExit } from 'react-icons/im';
+import { AiOutlineForm } from 'react-icons/ai';
+
 
 export default function Header(){
     //GETTING THE DATA FROM USERS I CAN USE USER.NAME EX
@@ -20,11 +22,11 @@ export default function Header(){
             </S.CoverAvatar>
         <S.Link to="/home">
             <FiHome color='#fff' size={24} />
-            Home
+            Início
         </S.Link>
         <S.Link to="/home">
-            <FiSettings color='#fff' size={24} />
-            Customers
+            <AiOutlineForm color='#fff' size={24} />
+            Prova
         </S.Link>
         <S.Link to="/perfil">
             <FiUser color='#fff' size={24} />

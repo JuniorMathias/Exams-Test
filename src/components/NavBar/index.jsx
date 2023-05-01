@@ -24,7 +24,7 @@ export default function Header(){
             <FiHome color='#fff' size={24} />
             Início
         </S.Link>
-        <S.Link to="/home">
+        <S.Link to="/provas">
             <AiOutlineForm color='#fff' size={24} />
             Prova
         </S.Link>

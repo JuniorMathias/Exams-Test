@@ -7,6 +7,7 @@ import Profile from '../pages/Profile';
 
 import Private from './Private';
 import UpdatePassword from '../pages/UpdatePassword';
+import TestChoice from '../pages/TestChoice';
 
 function RoutesApp() {
 
@@ -17,9 +18,11 @@ function RoutesApp() {
         <Route path="/" element={<SignIn />} />
         <Route path="/register" element={<Register />} />
         <Route path="/recuperarsenha" element={<RecoverPassword />} />
-        <Route path="/atualizarSenha" element={<Private><UpdatePassword /> </Private>} />
+
         <Route path="/home" element={<Private><HomePage /> </Private>} />
         <Route exact path="/perfil" element={<Private><Profile /> </Private>} />
+        <Route path="/atualizarSenha" element={<Private><UpdatePassword /> </Private>} />
+        <Route path="/provas" element={<Private><TestChoice /> </Private>} />
 
       </Routes>
   );

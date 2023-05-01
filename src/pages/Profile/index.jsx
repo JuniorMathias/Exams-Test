@@ -5,14 +5,16 @@ import { AuthContext } from '../../contexts/auth';
 import { toast } from "react-toastify";
 import NavBar from '../../components/NavBar';
 
-import firebase from '../../services/firebaseConnection';
+import { db, storage } from '../../services/firebaseConnection'
+import { doc, updateDoc } from 'firebase/firestore';
+import { ref, uploadBytes, getDownloadURL} from 'firebase/storage';
 
 
 import { FiUpload } from 'react-icons/fi';
 
 
 export default function Profile(){
-  const { user,loadingAuth } = useContext(AuthContext);
+  const { user, storageUser, setUser} = useContext(AuthContext);
 
   const [name, setName] = useState(user && user.nome);
   const [email, setEmail] = useState(user && user.email);
@@ -21,6 +23,7 @@ export default function Profile(){
   const [phone, setPhone] = useState(user.telefone);
   const [imageAvatar, setImageAvatar] = useState(null);
   const [errors, setErrors] = useState('');
+  const [loadingAuth, setLoadingAuth] = useState(false);
 
 //  preview before upload it
 function handleFile(e){
@@ -41,12 +44,64 @@ function handleFile(e){
 
 // uploading a new photo 
 async function handleUpload(){
+  setLoadingAuth(true);
+  const currentUid = user.uid;
 
+  const uploadRef = ref(storage, `images/${currentUid}/${imageAvatar.name}`)
+
+  const uploadTask = uploadBytes(uploadRef, imageAvatar)
+  .then((snapshot) =>{
+    
+    getDownloadURL(snapshot.ref).then( async (downloadURL) => {
+      let urlFoto = downloadURL;
+
+      const docRef = doc(db, "users", user.uid)
+      await updateDoc(docRef, {
+        avatarUrl: urlFoto,
+        nome: name,
+      })
+      .then(() => {
+        let data = {
+          ...user,
+          nome: name,
+          avatarUrl: urlFoto,
+        }
+        setLoadingAuth(false);
+        setUser(data);
+        storageUser(data);
+        toast.success("Atualizado com sucesso!")
+        
+      })
+
+    })
+
+  })
 
 }
 
   async function handleSave(e){
-   
+   setLoadingAuth(true);
+   e.preventDefault();
+
+   if(imageAvatar === null && name !== ''){
+    const docRef = doc(db,"users", user.uid);
+    await updateDoc(docRef, {
+      nome: name
+    })
+    .then(()=> {
+      let data = {
+        ...user,
+        nome: name
+      };
+      setLoadingAuth(false);
+      setUser(data);
+      storageUser(data);
+      toast.success("Atualizado com sucesso!")
+    })
+   }else if(name !== '' && imageAvatar !== null){
+     handleUpload();
+   }
+
   }
 
   return(
@@ -114,7 +169,7 @@ async function handleUpload(){
           <S.Button
             type="submit"
           >
-            {loadingAuth ? 'Carregando...' : 'Salvar'}
+            {loadingAuth ? 'Atualizando...' : 'Salvar'}
           </S.Button>
         </S.Form>
             </S.Content>

@@ -22,7 +22,7 @@ export default function Header(){
             <FiHome color='#fff' size={24} />
             Home
         </S.Link>
-        <S.Link to="/Customers">
+        <S.Link to="/home">
             <FiUser color='#fff' size={24} />
             Customers
         </S.Link>

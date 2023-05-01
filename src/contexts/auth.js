@@ -155,6 +155,8 @@ async function logout(){
         signUp,
         logout,
         recoverPassword,
+        setUser,
+        storageUser,
         loadingAuth,
         loading,
         error,

@@ -15,22 +15,29 @@ export default function TestChoice(){
     <S.LoginArea>
       <S.MyIcon src={logo} alt="Logo System" />
     </S.LoginArea>
-    <S.Title>Login</S.Title>
-      <S.Span>faça seu login</S.Span>
+    <S.Title>Escolha um curso</S.Title>
+      <S.Span>Escolha qual prova gostaria de fazer</S.Span>
      
       <S.Form >
-        <S.Span>
+
+        <S.Span style={{alignItems: 'center',flexDirection: 'column', display:'flex'}}>
           <S.Link to="/register" >
-            Analise e Desenvolvimento de Sistemas
+            Análise e Desenvolvimento de Sistemas
           </S.Link>
-          <img src={ads} width={300} height={300} alt="profile pic" className='profilePic'/>
+          <S.Link to="/register" >
+            <img src={ads} width={300} height={300} alt="profile pic" className='profilePic'/>
+          </S.Link>
         </S.Span>   
-        <S.Span >
-          <S.Link to="/register" style={{marginLeft:'30px'}}>
-            Redes de computadores
+
+        <S.Span style={{alignItems: 'center',flexDirection: 'column', display:'flex'}}>
+          <S.Link to="/register">
+            Rede de computadores
           </S.Link>
-          <img src={redes} width={300} height={300} alt="profile pic" className='profilePic'/>
+          <S.Link to="/register" >
+            <img src={redes} width={300} height={300} alt="profile pic" className='profilePic'/>
+          </S.Link>
         </S.Span>
+
     </S.Form>
     
     

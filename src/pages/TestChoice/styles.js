@@ -23,6 +23,17 @@ export const Content = styled.div`
   border-radius: 5px;
 `;
 
+export const LoginArea = styled.div`
+    display: flex;
+    justify-content: center;
+    background-color: #181c2e;
+    width: 100%;
+`;
+export const MyIcon = styled.img`
+    padding: 20px;
+    width: 150px;
+    height: 130px;
+`;
 export const Title = styled.h1`
   font-size: 48px;
   margin-bottom: 8px;
@@ -33,22 +44,10 @@ export const Span = styled.span`
   color: #fff;
 `;
 
-export const LoginArea = styled.div`
-    display: flex;
-    justify-content: center;
-    background-color: #181c2e;
-    width: 100%;
-`;
-
-export const MyIcon = styled.img`
-    padding: 20px;
-    width: 150px;
-    height: 130px;
-`;
 export const Form = styled.form`
   width: 90%;
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
 `;
 
 

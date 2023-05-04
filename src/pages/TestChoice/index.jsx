@@ -21,19 +21,19 @@ export default function TestChoice(){
       <S.Form >
 
         <S.Span style={{alignItems: 'center',flexDirection: 'column', display:'flex'}}>
-          <S.Link to="/register" >
+          <S.Link to="/adsprova" >
             Análise e Desenvolvimento de Sistemas
           </S.Link>
-          <S.Link to="/register" >
+          <S.Link to="/adsprova" >
             <img src={ads} width={300} height={300} alt="profile pic" className='profilePic'/>
           </S.Link>
         </S.Span>   
 
         <S.Span style={{alignItems: 'center',flexDirection: 'column', display:'flex'}}>
-          <S.Link to="/register">
+          <S.Link to="/redesprova">
             Rede de computadores
           </S.Link>
-          <S.Link to="/register" >
+          <S.Link to="/redesprova" >
             <img src={redes} width={300} height={300} alt="profile pic" className='profilePic'/>
           </S.Link>
         </S.Span>

@@ -7,8 +7,8 @@ export default function RedesTest(){
   return(
   <>
   <S.Container>
-  <S.Content>
-    
+    <S.Content>
+      
     </S.Content>
 
   </S.Container>

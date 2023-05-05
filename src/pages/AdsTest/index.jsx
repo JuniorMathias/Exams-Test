@@ -7,10 +7,9 @@ export default function AdsTest(){
   return(
   <>
   <S.Container>
-  <S.Content>
-    
+    <S.Content>
+      olá mundo
     </S.Content>
-
   </S.Container>
   </>
   )

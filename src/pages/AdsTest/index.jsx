@@ -8,7 +8,8 @@ export default function AdsTest(){
   <>
   <S.Container>
     <S.Content>
-      olá mundo
+      <S.H1> Prova</S.H1>
+      
     </S.Content>
   </S.Container>
   </>

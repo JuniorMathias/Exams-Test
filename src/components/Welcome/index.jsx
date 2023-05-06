@@ -6,7 +6,7 @@ const Welcome = () => {
 
   return (
     <S.Welcome>
-      <S.H2>Seja bem-vindo</S.H2>
+      <S.H2>Análise e desenvolvimento de sistemas</S.H2>
       <S.P>Clique no botão abaixo para começar:</S.P>
       <S.Button>
         Iniciar

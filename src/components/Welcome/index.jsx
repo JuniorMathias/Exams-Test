@@ -1,8 +1,12 @@
 import { useContext } from "react";
+import { QuizContext } from "../../contexts/quiz";
 import * as S from './styles';
 
 
 const Welcome = () => {
+  const quizState = useContext(QuizContext);
+
+  console.log(quizState);
 
   return (
     <S.Welcome>

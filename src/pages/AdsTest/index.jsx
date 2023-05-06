@@ -1,6 +1,8 @@
 import * as S from './styles';
-
+import Welcome from '../../components/Welcome';
+import NavBar from '../../components/NavBar';
 export default function AdsTest(){
+
 
 
 
@@ -8,8 +10,7 @@ export default function AdsTest(){
   <>
   <S.Container>
     <S.Content>
-      <S.H1> Prova</S.H1>
-      
+      <Welcome />
     </S.Content>
   </S.Container>
   </>

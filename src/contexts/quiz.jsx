@@ -3,17 +3,18 @@ import questions from "../data/questions_complete";
 
 
 //estágios da prova
-const STAGES = ["Start", "Playing", "Category", "End"];
+const STAGES = ["Start", "Category", "Playing", "End"];
 
 //estado inicial quando carrega a página
 const initialState = {
   gameStage: STAGES[0], //estagio atual
   questions, // perguntas
   currentQuestion: 0,
-  score: 0,
   answerSelected: false,
+  score: 0,
   help: false,
-  optionToHide: null
+  optionToHide: null,
+  isSelected: false
 };
 
 const quizReducer = (state, action) => {
@@ -24,6 +25,22 @@ const quizReducer = (state, action) => {
       return {
         ...state,
         gameStage: STAGES[1],
+      };
+
+
+      case "START_GAME":
+      let quizQuestions = null;
+
+      state.questions.forEach((question) => {
+        if (question.category === action.payload) {
+          quizQuestions = question.questions;
+        }
+      });
+
+      return {
+        ...state,
+        questions: quizQuestions,
+        gameStage: STAGES[2],
       };
 
       // embaralhar as perguntas
@@ -79,6 +96,33 @@ const quizReducer = (state, action) => {
           //score muda para esse valor, está sendo atribuido um ponto a mais
           score: state.score + correctAnswer,
           answerSelected: option,
+        };
+      }
+
+      case "SHOW_TIP": {
+        return {
+          ...state,
+          help: "tip",
+        };
+      }
+  
+      case "REMOVE_OPTION": {
+        const questionWithoutOption = state.questions[state.currentQuestion];
+  
+        let repeat = true;
+        let optionToHide;
+  
+        questionWithoutOption.options.forEach((option) => {
+          if (option !== questionWithoutOption.answer && repeat) {
+            optionToHide = option;
+            repeat = false;
+          }
+        });
+  
+        return {
+          ...state,
+          optionToHide,
+          help: true,
         };
       }
 

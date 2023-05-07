@@ -81,16 +81,3 @@ button:active{
 
 /* estilo das opções da prova */
 
-.correct {
-  background-color: #0bfc03;
-  font-weight: bold;
-}
-
-.wrong {
-  background-color: #3c0e70;
-  opacity: 0.5;
-}
-
-.hide {
-  display: none;
-}

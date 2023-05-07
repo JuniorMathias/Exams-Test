@@ -62,7 +62,25 @@ const quizReducer = (state, action) => {
         return initialState;
       }
 
-
+      //checando as respostas
+      case "CHECK_ANSWER": {
+        //acabar com o loop de respostas de uma mesma pergunta
+        if (state.answerSelected) return state;
+  
+        const answer = action.payload.answer;
+        const option = action.payload.option;
+        let correctAnswer = 0;
+  
+        //verificando se a resposta é igual a opção (correta)
+        if (answer === option) correctAnswer = 1;
+  
+        return {
+          ...state,
+          //score muda para esse valor, está sendo atribuido um ponto a mais
+          score: state.score + correctAnswer,
+          answerSelected: option,
+        };
+      }
 
       default:
         return state;

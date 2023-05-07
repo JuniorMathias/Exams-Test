@@ -10,8 +10,9 @@ const initialState = {
   gameStage: STAGES[0], //estagio atual
   questions, // perguntas
   currentQuestion: 0,
-  answerSelected: false,
-  score: 0
+  score: 0,
+  answerSelected: false
+  
 };
 
 const quizReducer = (state, action) => {
@@ -40,7 +41,8 @@ const quizReducer = (state, action) => {
         //pegando a pergunta atual e adidionando mais 1
         const nextQuestion = state.currentQuestion + 1;
         let endGame = false;
-  
+        
+        //quando as perguntas chegarem ao fim o endgame vai ficar como true
         if (!state.questions[nextQuestion]) {
           endGame = true;
         }
@@ -54,6 +56,7 @@ const quizReducer = (state, action) => {
         };
       }
 
+      //inicializando o fim do jogo 
       case "NEW_GAME": {
         return initialState;
       }

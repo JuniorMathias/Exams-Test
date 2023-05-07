@@ -17,7 +17,8 @@ export default function AdsTest(){
   <>
   <S.Container>
     <S.Content>
-      {/* verificando o estagio do game */}
+      <h1>Quiz de Programação</h1>
+      {/* verificando o estagio da prova pra mostrar*/}
       {quizState.gameStage === "Start" && <Welcome />}
       {quizState.gameStage === "Playing" && <Question />}
       

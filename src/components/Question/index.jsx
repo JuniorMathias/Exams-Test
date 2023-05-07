@@ -15,7 +15,7 @@ const Question = () => {
         <S.OptionsContainer>
             <S.P>Opções </S.P> 
         </S.OptionsContainer>
-      <S.Button> Continuar </S.Button>
+      <S.Button onClick={() => dispatch({ type: "CHANGE_QUESTION" })}> Continuar </S.Button>
     </S.Question>
   );
 };

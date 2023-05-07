@@ -36,6 +36,24 @@ const quizReducer = (state, action) => {
           questions: reorderedQuestions,
         };
 
+      //alterar o indice da pergunta
+      case "CHANGE_QUESTION": {
+        //pegando a pergunta atual e adidionando mais 1
+        const nextQuestion = state.currentQuestion + 1;
+        let endGame = false;
+  
+        if (!state.questions[nextQuestion]) {
+          endGame = true;
+        }
+  
+        return {
+          ...state,
+          currentQuestion: nextQuestion,
+          gameStage: endGame ? STAGES[3] : state.gameStage,
+          answerSelected: false,
+          help: false,
+        };
+      }
 
 
 

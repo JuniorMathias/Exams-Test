@@ -1,14 +1,18 @@
 import styled from 'styled-components';
+
 export const Question  = styled.div`
+    border-radius: 1rem;
+    padding: 2rem;
+    width: 500px;
     
 `;
 
 export const P = styled.p`
-    
+    margin-bottom: 1rem;
 `;
 
 export const H2 = styled.h2`
-    
+    margin-bottom: 2rem;
 `;
 export const OptionsContainer = styled.div`
     
@@ -25,7 +29,7 @@ export const Button = styled.button`
         rgba(300, 211, 111, 1) 100%
     );
     border-radius: 2rem;
-    border: none;
+    border: 2px solid #fff;
     
     &:hover {
         background-color: rgba(219, 38, 41, 1);

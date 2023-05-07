@@ -28,7 +28,7 @@ export const Button = styled.button`
         rgba(300, 211, 111, 1) 100%
     );
     border-radius: 2rem;
-    border: none;
+    border: 2px solid #fff;
     
     &:hover {
         background-color: rgba(219, 38, 41, 1);

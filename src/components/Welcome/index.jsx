@@ -6,7 +6,6 @@ import * as S from './styles';
 const Welcome = () => {
   const [quizState, dispatch] = useContext(QuizContext);
 
-  console.log(quizState);
 
   return (
     <S.Welcome>

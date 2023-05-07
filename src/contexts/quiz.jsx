@@ -9,13 +9,12 @@ const STAGES = ["Start", "Playing", "Category", "End"];
 const initialState = {
   gameStage: STAGES[0], //estagio atual
   questions, // perguntas
-  currentQuestion: 0
+  currentQuestion: 0,
+  answerSelected: false,
+  score: 0
 };
 
-
-
 const quizReducer = (state, action) => {
-  console.log(state, action);
   //inicio o estagio da prova
   switch (action.type) {
     //primeiro click 
@@ -53,6 +52,10 @@ const quizReducer = (state, action) => {
           answerSelected: false,
           help: false,
         };
+      }
+
+      case "NEW_GAME": {
+        return initialState;
       }
 
 

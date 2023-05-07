@@ -11,14 +11,6 @@ import TestChoice from '../pages/TestChoice';
 import AdsTest from '../pages/AdsTest';
 import RedesTest from '../pages/RedesTest';
 
-import Welcome from '../components/Welcome';
-import  Question  from '../components/Question';
-
-
-
-
-
-
 function RoutesApp() {
 
 
@@ -35,8 +27,6 @@ function RoutesApp() {
         <Route path="/provas" element={<Private><TestChoice /> </Private>} />
 
         <Route path="/adsprova" element={<Private><AdsTest /> </Private>} />
-        <Route path="/iniciarprova" element={<Private><Welcome /> </Private>} />
-        <Route path="/iniciarprova" element={<Private><Question /> </Private>} />
 
 
         <Route path="/redesprova" element={<Private><RedesTest /> </Private>} />

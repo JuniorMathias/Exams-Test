@@ -11,8 +11,9 @@ const initialState = {
   questions, // perguntas
   currentQuestion: 0,
   score: 0,
-  answerSelected: false
-  
+  answerSelected: false,
+  help: false,
+  optionToHide: null
 };
 
 const quizReducer = (state, action) => {

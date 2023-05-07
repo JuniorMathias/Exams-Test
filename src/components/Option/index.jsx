@@ -7,7 +7,7 @@ const Option = ({ option, selectOption, answer, hide }) => {
   const [quizState, dispatch] = useContext(QuizContext);
 
   return (
-    <div
+    <S.Option
       onClick={() => selectOption()}
       className={`
       option
@@ -17,8 +17,8 @@ const Option = ({ option, selectOption, answer, hide }) => {
         ${hide ? "hide" : ""}
         `}
     >
-      <p>{option}</p>
-    </div>
+      <S.P>{option}</S.P>
+    </S.Option>
   );
 };
 

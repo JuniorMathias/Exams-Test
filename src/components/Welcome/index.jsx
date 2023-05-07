@@ -4,7 +4,7 @@ import * as S from './styles';
 
 
 const Welcome = () => {
-  const quizState = useContext(QuizContext);
+  const [quizState, dispatch] = useContext(QuizContext);
 
   console.log(quizState);
 
@@ -12,7 +12,7 @@ const Welcome = () => {
     <S.Welcome>
       <S.H2>Análise e desenvolvimento de sistemas</S.H2>
       <S.P>Clique no botão abaixo para começar:</S.P>
-      <S.Button>
+      <S.Button onClick={() => dispatch({ type: "CHANGE_STAGE" })}>
         Iniciar
       </S.Button>
     </S.Welcome>

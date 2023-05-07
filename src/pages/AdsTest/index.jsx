@@ -1,8 +1,15 @@
+import { useContext } from "react";
+
 import * as S from './styles';
 import Welcome from '../../components/Welcome';
-import NavBar from '../../components/NavBar';
-export default function AdsTest(){
+import Question from '../../components/Question';
 
+import { QuizContext } from "../../contexts/quiz";
+
+
+
+export default function AdsTest(){
+  const [quizState, dispatch] = useContext(QuizContext);
 
 
 
@@ -10,7 +17,10 @@ export default function AdsTest(){
   <>
   <S.Container>
     <S.Content>
-      <Welcome />
+      {/* verificando o estagio do game */}
+      {quizState.gameStage === "Start" && <Welcome />}
+      {quizState.gameStage === "Playing" && <Question />}
+      
     </S.Content>
   </S.Container>
   </>

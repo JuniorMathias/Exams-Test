@@ -3,7 +3,7 @@ import questions from "../data/questions_complete";
 
 
 //estágios da prova
-const STAGES = ["Start", "Category", "Playing", "End"];
+const STAGES = ["Start", "Playing", "Category", "End"];
 
 //estado inicial quando carrega a página
 const initialState = {
@@ -18,8 +18,27 @@ const quizReducer = (state, action) => {
   console.log(state, action);
   //inicio o estagio da prova
   switch (action.type) {
+    //primeiro click 
     case "CHANGE_STAGE":
-      return state;
+      return {
+        ...state,
+        gameStage: STAGES[1],
+      };
+
+      // embaralhar as perguntas
+      case "REORDER_QUESTIONS":
+        const reorderedQuestions = state.questions.sort(() => {
+          return Math.random() - 0.5;
+        });
+  
+        return {
+          ...state,
+          questions: reorderedQuestions,
+        };
+
+
+
+
       default:
         return state;
   }

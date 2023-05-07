@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext,useEffect } from "react";
 
 import * as S from './styles';
 import Welcome from '../../components/Welcome';
@@ -11,6 +11,10 @@ import { QuizContext } from "../../contexts/quiz";
 export default function AdsTest(){
   const [quizState, dispatch] = useContext(QuizContext);
 
+  useEffect(()=> {
+    //embara
+    dispatch({type: "REORDER_QUESTIONS"})
+  }, [])
 
 
   return(

@@ -7,7 +7,6 @@ import * as S from './styles';
 
 //esse option é que vem direto component, e passando o selectOp.. e answer vindo do question
 const Option = ({ option, selectOption, answer, hide, isSelected }) => {
-  const [quizState, dispatch] = useContext(QuizContext);
 
   return (
     <S.Option>
@@ -19,7 +18,7 @@ const Option = ({ option, selectOption, answer, hide, isSelected }) => {
           onChange={() => selectOption(option)}
           onClick={() => selectOption()}
         />
-          {option}
+          <S.P>{option}</S.P>
     </S.Option>
   );
 };

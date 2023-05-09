@@ -6,8 +6,8 @@ import * as S from './styles';
 
 
 //esse option é que vem direto component, e passando o selectOp.. e answer vindo do question
-const Option = ({ option, selectOption, answer, hide, isSelected }) => {
-
+const Option = ({ option, selectOption, isSelected }) => {
+console.log(option)
   return (
     <S.Option>
         <input

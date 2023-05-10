@@ -14,10 +14,7 @@ import { QuizContext } from "../../contexts/quiz";
 export default function AdsTest(){
   const [quizState, dispatch] = useContext(QuizContext);
 
-  useEffect(()=> {
-    //embara
-    dispatch({type: "REORDER_QUESTIONS"})
-  }, [])
+  
 
 
   return(

@@ -14,7 +14,8 @@ const initialState = {
   score: 0,
   help: false,
   optionToHide: null,
-  isSelected: false
+  isSelected: false,
+  selectedAnswer: null
 };
 
 const quizReducer = (state, action) => {
@@ -82,10 +83,13 @@ const quizReducer = (state, action) => {
       //checando as respostas
       case "CHECK_ANSWER": {
         //acabar com o loop de respostas de uma mesma pergunta
+        console.log(state)
         if (state.answerSelected) return state;
-  
+        
         const answer = action.payload.answer;
-        const option = action.payload.option;
+        const option = action.payload.optionUser;
+        const valor = action.payload.valor;
+        // console.log(action);
         let correctAnswer = 0;
   
         //verificando se a resposta é igual a opção (correta)
@@ -95,36 +99,11 @@ const quizReducer = (state, action) => {
           ...state,
           //score muda para esse valor, está sendo atribuido um ponto a mais
           score: state.score + correctAnswer,
-          answerSelected: option,
+          answerSelected: correctAnswer,
         };
       }
+      
 
-      case "SHOW_TIP": {
-        return {
-          ...state,
-          help: "tip",
-        };
-      }
-  
-      case "REMOVE_OPTION": {
-        const questionWithoutOption = state.questions[state.currentQuestion];
-  
-        let repeat = true;
-        let optionToHide;
-  
-        questionWithoutOption.options.forEach((option) => {
-          if (option !== questionWithoutOption.answer && repeat) {
-            optionToHide = option;
-            repeat = false;
-          }
-        });
-  
-        return {
-          ...state,
-          optionToHide,
-          help: true,
-        };
-      }
 
       default:
         return state;

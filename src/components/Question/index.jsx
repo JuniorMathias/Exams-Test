@@ -7,6 +7,7 @@ import Option from "../Option";
 
 const Question = () => {
     const [quizState, dispatch] = useContext(QuizContext);
+    
     //perguntas 
     const currentQuestion = quizState.questions[quizState.currentQuestion];
     
@@ -14,7 +15,7 @@ const Question = () => {
       let valor = optionUser;
       dispatch({
           type: "CHECK_ANSWER",
-          payload: { answer: currentQuestion.answer,optionUser,valor }
+          payload: { answer: currentQuestion.answer,optionUser:valor, valor }
       });
       
   };

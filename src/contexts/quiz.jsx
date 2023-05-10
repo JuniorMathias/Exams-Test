@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createContext, useReducer } from "react";
 import questions from "../data/questions_complete";
 
@@ -19,6 +20,7 @@ const initialState = {
 };
 
 const quizReducer = (state, action) => {
+  
   //inicio o estagio da prova
   switch (action.type) {
     //primeiro click 
@@ -82,24 +84,26 @@ const quizReducer = (state, action) => {
 
       //checando as respostas
       case "CHECK_ANSWER": {
+
         //acabar com o loop de respostas de uma mesma pergunta
-        console.log(state)
+        
         if (state.answerSelected) return state;
         
         const answer = action.payload.answer;
-        const option = action.payload.optionUser;
-        const valor = action.payload.valor;
-        // console.log(action);
+        let option = action.payload.optionUser;
+        let valor = action.valor;
+        // console.log(option)
+        console.log(action);
         let correctAnswer = 0;
   
         //verificando se a resposta é igual a opção (correta)
-        if (answer === option) correctAnswer = 1;
+        if (answer === valor) correctAnswer = 1;
   
         return {
           ...state,
           //score muda para esse valor, está sendo atribuido um ponto a mais
           score: state.score + correctAnswer,
-          answerSelected: correctAnswer,
+          answerSelected: option,
         };
       }
       
@@ -112,7 +116,9 @@ const quizReducer = (state, action) => {
 
 export const QuizContext = createContext();
 
+
 export const QuizProvider = ({ children }) => {
+
   //recebe a modificação de estado 
   const value = useReducer(quizReducer, initialState);
 

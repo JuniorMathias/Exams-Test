@@ -1,9 +1,8 @@
 import { useContext } from "react";
 
 import { QuizContext } from "../../contexts/quiz";
+import * as S from './styles';
 
-
-import "./styles.css";
 
 const PickCategory = () => {
   const [quizState, dispatch] = useContext(QuizContext);
@@ -15,18 +14,18 @@ const PickCategory = () => {
   }
 
   return (
-    <div id="category">
-      <h2>Escolha uma categoria</h2>
-      <p>As perguntas serão referentes a uma das linguagens abaixo:</p>
+    <S.Category>
+      <S.H2>Escolha uma categoria</S.H2>
+      <S.P>As perguntas serão referentes a uma das linguagens abaixo:</S.P>
       {quizState.questions.map((question) => (
-        <button
+        <S.Button
           onClick={() => chooseCategoryAndReorderQuestions(question.category)}
           key={question.category}
         >
           {question.category}
-        </button>
+        </S.Button>
       ))}
-    </div>
+    </S.Category>
   );
 };
 

@@ -21,9 +21,9 @@ const PickCategory = () => {
   return (
     <S.Category>
       
-      <S.H2>Escolha uma categoria</S.H2>
-      <S.P>As perguntas serão referentes a uma das linguagens abaixo:</S.P>
 
+      <S.Title>Escolha um curso</S.Title>
+      <S.Span>Escolha qual prova gostaria de fazer</S.Span>
       <S.Form >
       {quizState.questions.map((question) => (
         <S.Button

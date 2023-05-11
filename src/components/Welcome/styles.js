@@ -29,7 +29,7 @@ export const Button = styled.button`
     );
     border-radius: 2rem;
     border: 2px solid #fff;
-    
+    margin-bottom: 1rem;
     &:hover {
         background-color: rgba(219, 38, 41, 1);
         color: #fff;

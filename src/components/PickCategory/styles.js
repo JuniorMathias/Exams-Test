@@ -3,7 +3,7 @@ import { Link as Router } from 'react-router-dom';
 
 export const Category  = styled.div`
     border-radius: 1rem;
-    padding: 2rem;
+    
 `;
 
 
@@ -13,6 +13,11 @@ export const Form = styled.form`
   justify-content: space-between;
 `;
 
+export const Title = styled.h1`
+  font-size: 48px;
+  margin-bottom: 8px;
+  color: #fff;
+`;
 
 
 export const P = styled.p`
@@ -32,6 +37,7 @@ export const Link = styled(Router)`
   margin: 14px 0;
   font-size: 14px;
 `;
+
 export const Span = styled.span`
   margin-bottom: 28px;
   color: #fff;

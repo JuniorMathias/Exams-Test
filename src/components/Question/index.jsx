@@ -4,21 +4,26 @@ import * as S from './styles';
 
 import Option from "../Option";
 
-
 const Question = () => {
-    const [quizState, dispatch] = useContext(QuizContext);
-    
-    //perguntas 
+    const [quizState, dispatch, updateOption] = useContext(QuizContext);
+    const [optionUser, setOptionUser] = useState(null); // Adiciona o estado para a variável optionUser
+
     const currentQuestion = quizState.questions[quizState.currentQuestion];
-    
-    const onSelectOption = (optionUser) => {
-      let valor = optionUser;
-      dispatch({
-          type: "CHECK_ANSWER",
-          payload: { answer: currentQuestion.answer,optionUser:valor, valor }
-      });
-      
-  };
+
+    const onSelectOption = (option) => {
+        console.log(option)
+
+        setOptionUser(option); // Atualiza o valor da variável optionUser quando uma opção é selecionada
+    };
+
+    const onNextQuestion = () => {
+        console.log(optionUser)
+        dispatch({
+            type: "CHECK_ANSWER",
+            payload: { answer: currentQuestion.answer, optionUser }
+        });
+        dispatch({ type: "CHANGE_QUESTION" });
+    };
 
     return (
         <S.Question>
@@ -35,10 +40,12 @@ const Question = () => {
                 ))}
             </S.OptionsContainer>
 
-            {/* ver se a questão está selecionado e ai habilita */}
-                <S.Button onClick={() => dispatch({ type: "CHANGE_QUESTION" })}>
+            {/* Verifica se uma opção foi selecionada para habilitar o botão */}
+            {optionUser && (
+                <S.Button onClick={onNextQuestion}>
                     Continuar
                 </S.Button>
+            )}
         </S.Question>
     );
 };

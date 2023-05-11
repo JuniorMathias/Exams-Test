@@ -12,12 +12,10 @@ const Question = () => {
 
     const onSelectOption = (option) => {
         console.log(option)
-
         setOptionUser(option); // Atualiza o valor da variável optionUser quando uma opção é selecionada
     };
 
     const onNextQuestion = () => {
-        console.log(optionUser)
         dispatch({
             type: "CHECK_ANSWER",
             payload: { answer: currentQuestion.answer, optionUser }

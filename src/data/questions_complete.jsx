@@ -1,6 +1,6 @@
 const data = [
     {
-      category: "Análise e desenvolvimento de sistemas",
+      category: "Análise e Desenvolvimento de Sistemas",
       questions: [
         {
           question: "Qual tag cria um parágrafo?",

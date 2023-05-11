@@ -1,9 +1,19 @@
 import styled from 'styled-components';
+import { Link as Router } from 'react-router-dom';
 
 export const Category  = styled.div`
     border-radius: 1rem;
     padding: 2rem;
 `;
+
+
+export const Form = styled.form`
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+`;
+
+
 
 export const P = styled.p`
     margin-bottom: 1rem;
@@ -16,23 +26,24 @@ export const OptionsContainer = styled.div`
     
 `;
 
+export const Link = styled(Router)`
+  color: #fff;
+  text-decoration: none;
+  margin: 14px 0;
+  font-size: 14px;
+`;
+export const Span = styled.span`
+  margin-bottom: 28px;
+  color: #fff;
+`;
+
+
 export const Button = styled.button`
     font-weight: bold;
     cursor: pointer;
-    font-size: 1.2rem;
-    padding: 0.8rem 1.5rem;
-    background: linear-gradient(
-        90deg,
-        rgba(45, 211,111, 1) 0%,
-        rgba(300, 211, 111, 1) 100%
-    );
+    background: transparent;
     border-radius: 2rem;
-    border: 2px solid #fff;
-    
-    &:hover {
-        background-color: rgba(219, 38, 41, 1);
-        color: #fff;
-    }
+    border: none;
 `;
 
 

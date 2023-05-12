@@ -3,32 +3,13 @@ import { Link as Router } from 'react-router-dom';
 
 export const Category  = styled.div`
     border-radius: 1rem;
-    
 `;
 
 
 export const Form = styled.form`
-  width: 90%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
-`;
-
-export const Title = styled.h1`
-  font-size: 48px;
-  margin-bottom: 8px;
-  color: #fff;
-`;
-
-
-export const P = styled.p`
-    margin-bottom: 1rem;
-`;
-
-export const H2 = styled.h2`
-    margin-bottom: 2rem;
-`;
-export const OptionsContainer = styled.div`
-    
 `;
 
 export const Link = styled(Router)`

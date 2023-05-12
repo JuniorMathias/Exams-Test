@@ -20,10 +20,6 @@ const PickCategory = () => {
 
   return (
     <S.Category>
-      
-
-      <S.Title>Escolha um curso</S.Title>
-      <S.Span>Escolha qual prova gostaria de fazer</S.Span>
       <S.Form >
       {quizState.questions.map((question) => (
         <S.Button

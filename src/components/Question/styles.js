@@ -13,6 +13,8 @@ export const P = styled.p`
 
 export const H2 = styled.h2`
     margin-bottom: 2rem;
+    color: #fff;
+    font-weight: bold;
 `;
 export const OptionsContainer = styled.div`
     

@@ -19,11 +19,12 @@ useEffect(()=> {
           type="radio"
           name="answer"
           value={option}
+          className="option"
           checked={isSelected}
           onChange={() => selectOption()}
           onClick={() => selectOption()}
         />
-          <S.P>{option}</S.P>
+          {option}
     </S.Option>
   );
 };

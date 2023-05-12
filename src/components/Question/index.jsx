@@ -22,7 +22,7 @@ const Question = () => {
         });
         dispatch({ type: "CHANGE_QUESTION" });
     };
-
+    
     return (
         <S.Question>
             <S.P>Questão {quizState.currentQuestion + 1} de {quizState.questions.length}  </S.P>

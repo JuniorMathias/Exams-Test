@@ -9,8 +9,8 @@ const Welcome = () => {
 
   return (
     <S.Welcome>
-      <S.H2>Análise e desenvolvimento de sistemas</S.H2>
-      <S.P>Clique no botão abaixo para começar:</S.P>
+      <S.H2>Hora de colocar em prática seus conhecimentos</S.H2>
+      <S.P>Clique no botão abaixo para começar seu teste:</S.P>
       <S.Button onClick={() => dispatch({ type: "CHANGE_STAGE" })}>
         Iniciar
       </S.Button>

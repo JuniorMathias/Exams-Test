@@ -22,6 +22,10 @@ const Question = () => {
         });
         dispatch({ type: "CHANGE_QUESTION" });
     };
+    const onBackQuestion = () => {
+        dispatch({ type: "BACK_QUESTION" });
+    };
+    
     
     return (
         <S.Question>
@@ -37,6 +41,9 @@ const Question = () => {
                     />
                 ))}
             </S.OptionsContainer>
+            <S.Button onClick={onBackQuestion}>
+                    Voltar
+                </S.Button>
 
             {/* Verifica se uma opção foi selecionada para habilitar o botão */}
             {optionUser && (

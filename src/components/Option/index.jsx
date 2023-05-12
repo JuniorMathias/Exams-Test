@@ -9,11 +9,12 @@ import * as S from './styles';
 const Option = ({ option, selectOption, isSelected }) => {
   const [quizState, dispatch] = useContext(QuizContext);
 // console.log(option)
-useEffect(()=> {
-  //embara
-  dispatch({type: "REORDER_QUESTIONS"})
-}, [])
+// useEffect(()=> {
+//   //embara
+//   dispatch({type: "REORDER_QUESTIONS"})
+// }, [])
   return (
+    
     <S.Option>
         <input
           type="radio"

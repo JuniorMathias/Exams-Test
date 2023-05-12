@@ -29,19 +29,19 @@ const PickCategory = () => {
           {question.category === "Análise e Desenvolvimento de Sistemas" 
             ? 
               <S.Span style={{alignItems: 'center',flexDirection: 'column', display:'flex'}}>
-                <S.Link to="/adsprova" >
+                <S.Link to="/provas" >
                   Análise e Desenvolvimento de Sistemas
                 </S.Link>
-                <S.Link to="/adsprova" >
+                <S.Link to="/provas" >
                   <img src={ads} width={300} height={300} alt="profile pic" className='profilePic'/>
                 </S.Link>
               </S.Span>   
             : 
               <S.Span style={{alignItems: 'center',flexDirection: 'column', display:'flex'}}>
-              <S.Link to="/redesprova">
+              <S.Link to="/provas">
                 Rede de computadores
               </S.Link>
-              <S.Link to="/redesprova" >
+              <S.Link to="/provas" >
                 <img src={redes} width={300} height={300} alt="profile pic" className='profilePic'/>
               </S.Link>
             </S.Span>

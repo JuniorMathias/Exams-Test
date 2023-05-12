@@ -7,9 +7,7 @@ import Profile from '../pages/Profile';
 
 import Private from './Private';
 import UpdatePassword from '../pages/UpdatePassword';
-import TestChoice from '../pages/TestChoice';
-import AdsTest from '../pages/AdsTest';
-import RedesTest from '../pages/RedesTest';
+import PageFlow from '../pages/PageFlow';
 
 function RoutesApp() {
 
@@ -24,12 +22,9 @@ function RoutesApp() {
         <Route path="/home" element={<Private><HomePage /> </Private>} />
         <Route exact path="/perfil" element={<Private><Profile /> </Private>} />
         <Route path="/atualizarSenha" element={<Private><UpdatePassword /> </Private>} />
-        <Route path="/provas" element={<Private><TestChoice /> </Private>} />
 
-        <Route path="/adsprova" element={<Private><AdsTest /> </Private>} />
+        <Route path="/provas" element={<Private><PageFlow /> </Private>} />
 
-
-        <Route path="/redesprova" element={<Private><RedesTest /> </Private>} />
 
       </Routes>
   );

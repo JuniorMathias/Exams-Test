@@ -11,7 +11,6 @@ const Question = () => {
     const currentQuestion = quizState.questions[quizState.currentQuestion];
 
     const onSelectOption = (option) => {
-        console.log(option)
         setOptionUser(option); // Atualiza o valor da variável optionUser quando uma opção é selecionada
     };
 
@@ -22,7 +21,8 @@ const Question = () => {
         });
         dispatch({ type: "CHANGE_QUESTION" });
     };
-    const onBackQuestion = () => {
+    const onBackQuestion = (option) => {
+        setOptionUser(option);
         dispatch({ type: "BACK_QUESTION" });
     };
     

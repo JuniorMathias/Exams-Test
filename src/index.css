@@ -81,3 +81,6 @@ button:active{
 
 /* estilo das opções da prova */
 
+.option{
+  margin-right: 1rem;
+}

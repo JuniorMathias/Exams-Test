@@ -76,6 +76,16 @@ const quizReducer = (state, action) => {
           help: false,
         };
       }
+      case "BACK_QUESTION": {
+        const backQuestion = state.currentQuestion - 1;
+       
+
+        return {
+          ...state,
+          currentQuestion: backQuestion
+        };
+
+      }
 
       //inicializando o fim do jogo 
       case "NEW_GAME": {
@@ -92,7 +102,6 @@ const quizReducer = (state, action) => {
         const answer = action.payload.answer;
         let option = action.payload.optionUser;
         console.log(action)
-        // console.log(action.optionUser);
         let correctAnswer = 0;
   
         //verificando se a resposta é igual a opção (correta)

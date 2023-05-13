@@ -5,7 +5,7 @@ import * as S from './styles';
 import Option from "../Option";
 
 const Question = () => {
-    const [quizState, dispatch, updateOption] = useContext(QuizContext);
+    const [quizState, dispatch] = useContext(QuizContext);
     const [optionUser, setOptionUser] = useState(null); // Adiciona o estado para a variável optionUser
 
     const currentQuestion = quizState.questions[quizState.currentQuestion];
@@ -41,10 +41,11 @@ const Question = () => {
                     />
                 ))}
             </S.OptionsContainer>
-            <S.Button onClick={onBackQuestion}>
+            {quizState.currentQuestion > 0 && (
+                <S.Button onClick={onBackQuestion}>
                     Voltar
                 </S.Button>
-
+            )}
             {/* Verifica se uma opção foi selecionada para habilitar o botão */}
             {optionUser && (
                 <S.Button onClick={onNextQuestion}>

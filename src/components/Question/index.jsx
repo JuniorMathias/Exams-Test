@@ -1,14 +1,21 @@
 import { useContext, useState } from "react";
 import { QuizContext } from "../../contexts/quiz";
 import * as S from './styles';
+import { AuthContext } from '../../contexts/auth';
+
 
 import Option from "../Option";
 
 const Question = () => {
     const [quizState, dispatch] = useContext(QuizContext);
     const [optionUser, setOptionUser] = useState(null); // Adiciona o estado para a variável optionUser
+    const { logout } = useContext(AuthContext);
 
     const currentQuestion = quizState.questions[quizState.currentQuestion];
+
+    async function handleLogout(){
+        await logout();
+      }
 
     const onSelectOption = (option) => {
         setOptionUser(option); // Atualiza o valor da variável optionUser quando uma opção é selecionada
@@ -28,6 +35,7 @@ const Question = () => {
     
     
     return (
+        <>
         <S.Question>
             <S.P>Questão {quizState.currentQuestion + 1} de {quizState.questions.length}  </S.P>
             <S.H2>{currentQuestion.question}  </S.H2>
@@ -53,6 +61,8 @@ const Question = () => {
                 </S.Button>
             )}
         </S.Question>
+        <S.ButtonLogout onClick={handleLogout}>Sair</S.ButtonLogout>
+     </>
     );
 };
 

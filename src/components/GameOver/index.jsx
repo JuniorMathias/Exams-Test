@@ -12,25 +12,19 @@ const GameOver = () => {
   const [studentScore, setStudentScore] = useState('');
 
   async function handleAdd(){
-    await addDoc(collection(db, "posts"), {
-      titulo: titulo,
-      autor: autor,
+    await setDoc(doc(db, "notas", "alunosNotas"), {
+      studentScore: quizState.score
     })
     .then(() => {
-        if(titulo.length === 0  && autor.length === 0){
-          alert("vazio");
-        }else{
-          setAutor('');
-          setTitulo('');
-          alert("Dados Registrados no Banco");
-        }
+        console.log("deu ")
         
       })
       .catch((error) => {
         alert("Gerou Erro" + error);
       })
     
-  }
+    }
+    
  
 
   return (
@@ -43,7 +37,6 @@ const GameOver = () => {
       </S.P>
       <S.Button
       onChange={ (e) => setStudentScore(e.target.value)}
-      onClick={() => dispatch({ type: "NEW_GAME" })}
       onClick={handleAdd}
       >Reiniciar
       </S.Button>

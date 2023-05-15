@@ -101,7 +101,7 @@ const quizReducer = (state, action) => {
         
         const answer = action.payload.answer;
         let option = action.payload.optionUser;
-        console.log(action)
+        // console.log(action)
         let correctAnswer = 0;
   
         //verificando se a resposta é igual a opção (correta)

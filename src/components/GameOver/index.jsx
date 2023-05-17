@@ -12,16 +12,30 @@ const GameOver = () => {
   const [studentScore, setStudentScore] = useState('');
 
   async function handleAdd(){
-    await setDoc(doc(db, "notas", "alunosNotas"), {
-      studentScore: quizState.score
-    })
-    .then(() => {
-        console.log("deu ")
+    if ( "Análise e Desenvolvimento de Sistemas" ){
+      await setDoc(doc(db, "notas", "notasAds"), {
+        studentScore: quizState.score
+      })
+      .then(() => {
+        console.log("deu ads")
         
       })
       .catch((error) => {
         alert("Gerou Erro" + error);
       })
+    }if (quizState.questions === "Rede de computadores"){
+      await setDoc(doc(db, "notas", "notasRedes"), {
+        studentScore: quizState.score
+      })
+      .then(() => {
+        console.log("deu redes")
+        
+      })
+      .catch((error) => {
+        alert("Gerou Erro" + error);
+      })
+    }
+    
     
     }
     

@@ -24,12 +24,25 @@ const GameOver = () => {
       })
     }
     
+    function chooseCategoryAndReorderQuestions(category) {
+      console.log(category)
+      dispatch({ type: "START_GAME", payload: category });
+  
+      dispatch({ type: "REORDER_QUESTIONS" });
+    }
  
 
   return (
     <S.GameOver>
       <S.H2>Fim de jogo!</S.H2>
       <S.P>Pontuação: {quizState.score}</S.P>
+      {quizState.questions.map((question) => ( 
+        <S.Button
+        onClick={() => chooseCategoryAndReorderQuestions(question.category)}
+        key={question.category}
+      >
+        </S.Button>
+      ))}
       <S.P>
         Você acertou {quizState.score} de {quizState.questions.length}{" "}
         perguntas.

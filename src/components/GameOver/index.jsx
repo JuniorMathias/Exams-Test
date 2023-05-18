@@ -12,7 +12,6 @@ const GameOver = () => {
   const [studentScore, setStudentScore] = useState('');
 
   async function handleAdd(){
-    if ( "Análise e Desenvolvimento de Sistemas" ){
       await setDoc(doc(db, "notas", "notasAds"), {
         studentScore: quizState.score
       })
@@ -23,20 +22,6 @@ const GameOver = () => {
       .catch((error) => {
         alert("Gerou Erro" + error);
       })
-    }if (quizState.questions === "Rede de computadores"){
-      await setDoc(doc(db, "notas", "notasRedes"), {
-        studentScore: quizState.score
-      })
-      .then(() => {
-        console.log("deu redes")
-        
-      })
-      .catch((error) => {
-        alert("Gerou Erro" + error);
-      })
-    }
-    
-    
     }
     
  

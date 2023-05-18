@@ -89,7 +89,13 @@ const quizReducer = (state, action) => {
 
       //inicializando o fim do jogo 
       case "NEW_GAME": {
-        return initialState;
+      let quizQuestions = null;
+
+      state.questions.forEach((question) => {
+        if (question.category === action.payload) {
+          quizQuestions = question.questions;
+        }
+      });
       }
 
       //checando as respostas

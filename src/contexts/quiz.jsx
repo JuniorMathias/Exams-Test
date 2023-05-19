@@ -16,7 +16,8 @@ const initialState = {
   help: false,
   optionToHide: null,
   isSelected: false,
-  selectedAnswer: null
+  selectedAnswer: null,
+  selectCategory: null,
 };
 
 const quizReducer = (state, action) => {
@@ -33,15 +34,18 @@ const quizReducer = (state, action) => {
 
       case "START_GAME":
       let quizQuestions = null;
-
+      var teste = null;
+      
       state.questions.forEach((question) => {
         if (question.category === action.payload) {
           quizQuestions = question.questions;
+          teste = question.category;
         }
       });
 
       return {
         ...state,
+        selectCategory: teste,
         questions: quizQuestions,
         gameStage: STAGES[2],
       };

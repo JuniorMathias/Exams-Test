@@ -36,18 +36,27 @@ function HomePage(){
     return (
       <>
         <S.Container>
-          <S.ButtonScore onClick={buscarPost}>buscar</S.ButtonScore>
-          <S.ButtonLogout onClick={handleLogout}>Sair</S.ButtonLogout>
-          <ul>
-        {post.map((post) => {
-          return(
-            <li key={post.id}>
-              <strong>Curso {post.id}</strong> <br/>
-              <span>Nota {post.scoreAds}</span> <br/>
-            </li>
-          )
-          })}
-         </ul>
+          <S.Content className='content'> 
+            <S.ButtonScore onClick={buscarPost}>buscar</S.ButtonScore>
+            <S.ButtonLogout onClick={handleLogout}>Sair</S.ButtonLogout>
+            
+            <S.Table>
+              <S.Tr>
+                <S.Th scope="col">Cursos</S.Th>
+                <S.Th scope="col">Notas</S.Th>
+              </S.Tr>
+              <S.Tbody>
+                {post.map((post, index) =>{
+                  return (
+                    <S.Tr key={index}>
+                      <S.Td>{post.id}</S.Td>
+                      <S.Td>{post.scoreAds}</S.Td>
+                    </S.Tr>
+                  )
+                })}
+              </S.Tbody>
+            </S.Table>
+          </S.Content>
         </S.Container>
       </>
     );

@@ -22,7 +22,7 @@ const GameOver = () => {
         
       })
       .catch((error) => {
-        alert("Gerou Erro" + error);
+        toast.error("Ops... deu erro!" + error);
       })
     }else if("Rede de computadores"){
       await setDoc(doc(db, "Notas", "notaRedes"), {

@@ -1,0 +1,45 @@
+div.container {
+    background-image: linear-gradient(to right, #2dd36f , #121212);
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    border-radius: 10px;
+}
+h2{
+    color: aliceblue;
+}
+p{
+    color: #fff;
+}
+
+div.op1 {
+    width: 5%;
+    display: inline-block;
+    font-size: 2vw;
+    text-align: center;
+    padding: 5vw 0vw 5vw 0vw;
+    min-width:50%;
+    border-radius: 10px;
+}
+
+div.op2 {
+    width: 5%;
+    display: inline-block;
+    margin-right: 0vw;
+    font-size: 2vw;
+    text-align: center;
+    padding: 5vw 0vw 5vw 0vw;
+    min-width:50%;
+    float:right;
+    border-radius: 10px;
+}
+
+.curso {
+    width: 50%;
+    padding: 20px;
+  }
+
+  .botao {
+    display: block;
+    margin-top: 10px;
+  }

@@ -69,8 +69,24 @@ function HomePage(){
             : 
             <>
             <div class="container">
-                <div class="op1">Opção 1</div>
-                <div class="op2">Oção 2</div>
+                <div class="op1">
+              <main>
+                <h2>Análise e Desenvolvimento de Sistemas</h2>
+                <p>
+                  O curso de Análise e Desenvolvimento de Sistemas é voltado para o estudo e aplicação de técnicas de programação, banco de dados e análise de sistemas. Prepare-se para uma carreira em desenvolvimento de software e gestão de projetos.
+                </p>
+                <a href="pagina_analise_desenvolvimento.html" class="botao">Saiba mais</a>
+              </main>  
+                </div>
+                <div class="op2">
+                <main>
+                  <h2>Redes de Computadores</h2>
+                  <p>
+                    O curso de Redes de Computadores aborda conceitos e práticas relacionadas ao projeto, implementação e administração de redes. Aprenda sobre protocolos de comunicação, segurança de redes e gerenciamento de infraestrutura de rede.
+                  </p>
+                  <a href="pagina_redes_computadores.html" class="botao">Saiba mais</a>
+                </main>  
+                </div>
             </div>
           </>
             }

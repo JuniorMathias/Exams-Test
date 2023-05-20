@@ -26,7 +26,7 @@ export default function Header(){
         </S.Link>
         <S.Link to="/provas">
             <AiOutlineForm color='#fff' size={24} />
-            Prova
+            Provas
         </S.Link>
         <S.Link to="/perfil">
             <FiUser color='#fff' size={24} />

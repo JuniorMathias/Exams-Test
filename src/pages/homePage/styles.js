@@ -74,3 +74,12 @@ export const Td = styled.td`
   text-transform: uppercase;
   padding: 1em;
 `;
+
+// if the db is blank 
+
+export const Header = styled.header`
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+`;

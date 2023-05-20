@@ -5,6 +5,7 @@ import NavBar from '../../components/NavBar';
 import { useState, useEffect } from 'react';
 import { doc, setDoc, getDoc,getDocs, collection } from 'firebase/firestore';
 import { db, firebase } from '../../../src/services/firebaseConnection';
+import './styles.css';
 
 
 function HomePage(){
@@ -43,10 +44,11 @@ function HomePage(){
       <>
       <NavBar />
         <S.Container>
-          <S.Content className='content'> 
+          
             <S.ButtonLogout onClick={handleLogout}>Sair</S.ButtonLogout>
             
             {post.length > 0 ?
+            <S.Content className='content'> 
             <S.Table>
               <S.Tr>
                 <S.Th scope="col">Cursos</S.Th>
@@ -63,8 +65,16 @@ function HomePage(){
                 })}
               </S.Tbody>
             </S.Table>
-            : <p>você não tem nada</p>}
           </S.Content>
+            : 
+            <>
+            <div class="container">
+                <div class="op1">Opção 1</div>
+                <div class="op2">Oção 2</div>
+            </div>
+          </>
+            }
+          
         </S.Container>
       </>
     );

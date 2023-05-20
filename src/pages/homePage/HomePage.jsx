@@ -15,31 +15,38 @@ function HomePage(){
   async function handleLogout(){
     await logout();
   }
-  async function buscarPost(){
-    const postRef = collection(db, "Notas" );
-    await getDocs(postRef)
-    .then((snapshot) => {
-      let lista = [];
-      snapshot.forEach((doc) => {
-        lista.push({
-          id: doc.id,
-          scoreAds: doc.data().studentScore
+  
+  useEffect(() =>{
+    async function buscarPost(){
+      const postRef = collection(db, "Notas" );
+      await getDocs(postRef)
+      .then((snapshot) => {
+        let lista = [];
+        snapshot.forEach((doc) => {
+          lista.push({
+            id: doc.id,
+            scoreAds: doc.data().studentScore
+          })
         })
+        console.log(lista);
+        setPosts(lista);
       })
-      console.log(lista);
-      setPosts(lista);
-    })
-    .catch((error) => {
-      alert("Erro ao buscar");
-    })
-  }
+      .catch((error) => {
+        alert("Erro ao buscar");
+      })
+    }
+    buscarPost();
+    return() => {
+    }
+  }, []);
     return (
       <>
+      <NavBar />
         <S.Container>
           <S.Content className='content'> 
-            <S.ButtonScore onClick={buscarPost}>buscar</S.ButtonScore>
             <S.ButtonLogout onClick={handleLogout}>Sair</S.ButtonLogout>
             
+            {post.length > 0 ?
             <S.Table>
               <S.Tr>
                 <S.Th scope="col">Cursos</S.Th>
@@ -56,6 +63,7 @@ function HomePage(){
                 })}
               </S.Tbody>
             </S.Table>
+            : <p>você não tem nada</p>}
           </S.Content>
         </S.Container>
       </>

@@ -14,7 +14,7 @@ const GameOver = () => {
 
   async function handleAdd(){
     if(quizState.selectCategory === "Análise e Desenvolvimento de Sistemas"){
-      await setDoc(doc(db, "Notas", "notaAds"), {
+      await setDoc(doc(db, "Notas", "Análise e Desenvolvimento de Sistemas"), {
         studentScore: quizState.score
       })
       .then(() => {
@@ -25,7 +25,7 @@ const GameOver = () => {
         toast.error("Ops... deu erro!" + error);
       })
     }else if("Rede de computadores"){
-      await setDoc(doc(db, "Notas", "notaRedes"), {
+      await setDoc(doc(db, "Notas", "Rede de computadores"), {
         studentScore: quizState.score
       })
       .then(() => {

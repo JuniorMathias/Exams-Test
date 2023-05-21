@@ -68,26 +68,39 @@ function HomePage(){
           </S.Content>
             : 
             <>
-            <div class="container">
-                <div class="op1">
-              <main>
-                <h2>Análise e Desenvolvimento de Sistemas</h2>
-                <p>
-                  O curso de Análise e Desenvolvimento de Sistemas é voltado para o estudo e aplicação de técnicas de programação, banco de dados e análise de sistemas. Prepare-se para uma carreira em desenvolvimento de software e gestão de projetos.
-                </p>
-                <a href="pagina_analise_desenvolvimento.html" class="botao">Provas</a>
-              </main>  
-                </div>
-                <div class="op2">
-                <main>
-                  <h2>Redes de Computadores</h2>
-                  <p class="redes">
-                    O curso de Redes de Computadores aborda conceitos e práticas relacionadas ao projeto, implementação e administração de redes. Aprenda sobre protocolos de comunicação, segurança de redes e gerenciamento de infraestrutura de rede.
-                  </p>
-                  <a href="pagina_redes_computadores.html" class="botao">Provas</a>
-                </main>  
-                </div>
-            </div>
+            <S.ContainerBlank>
+                <S.Box1>
+                  <S.Main>
+                    <S.H2>Análise e Desenvolvimento de Sistemas</S.H2>
+                    <S.P>
+                      O curso de Análise e Desenvolvimento de Sistemas é voltado para o estudo e aplicação de técnicas de programação, banco de dados e análise de sistemas. Prepare-se para uma carreira em desenvolvimento de software e gestão de projetos.
+                    </S.P>
+                    <S.P>
+                      Clique no botão abaixo e faça seu teste
+                    </S.P>
+                    
+                    <S.Link to="/provas" >
+                        Análise e Desenvolvimento de Sistemas
+                    </S.Link>
+                  </S.Main>  
+                </S.Box1>
+                <S.Box1>
+                  <S.Main>
+                    <S.H2>Redes de Computadores</S.H2>
+                    <S.P>
+                      <S.PRedes class="redes">
+                        O curso de Redes de Computadores aborda conceitos e práticas relacionadas ao projeto, implementação e administração de redes. Aprenda sobre protocolos de comunicação, segurança de redes e gerenciamento de infraestrutura de rede.
+                      </S.PRedes>
+                    </S.P>
+                    <S.P>
+                      Clique no botão abaixo e faça seu teste
+                    </S.P>
+                    <S.Link to="/provas">
+                      Rede de computadores
+                    </S.Link>
+                  </S.Main>  
+                </S.Box1>
+            </S.ContainerBlank>
           </>
             }
           

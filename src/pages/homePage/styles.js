@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link as Router } from 'react-router-dom';
 
 
 export const Container = styled.div`
@@ -76,10 +77,52 @@ export const Td = styled.td`
 `;
 
 // if the db is blank 
+export const Main = styled.main`
 
-export const Header = styled.header`
-  background-color: #333;
-  color: #fff;
-  padding: 20px;
+`;
+
+export const ContainerBlank = styled.div`
+  background-image: linear-gradient(to right, #2dd36f , #121212);
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  border-radius: 10px;
+`;
+
+export const Box1 = styled.div`
+  width: 5%;
+  display: inline-block;
+  font-size: 2vw;
   text-align: center;
+  padding: 5vw 0vw 5vw 0vw;
+  min-width:50%;
+  border-radius: 10px;
+  border-right: #fff 1px solid;
+  margin-right: 1%;
+`;
+
+export const H2 = styled.h2`
+  color: aliceblue;
+`;
+export const PRedes = styled.p`
+  margin-top: 15%;
+`;
+export const P = styled.p`
+  color: #fff;
+  font-size: medium;
+`;
+
+export const Link = styled(Router)`
+  color: #121212;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 0.8rem 1.5rem;
+  text-decoration: none !important;
+  background: linear-gradient(
+      90deg,
+      rgba(45, 211,111, 1) 0%,
+      rgba(300, 211, 111, 1) 100%
+  );
+  border-radius: 2rem;
+  border: 2px solid #fff;
 `;

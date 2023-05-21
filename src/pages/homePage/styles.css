@@ -1,10 +1,4 @@
-div.container {
-    background-image: linear-gradient(to right, #2dd36f , #121212);
-    display: flex;
-    justify-content: center;
-    width: 60%;
-    border-radius: 10px;
-}
+
 h2{
     color: aliceblue;
 }
@@ -17,27 +11,8 @@ p{
     margin-top: 15%;
 }
 
-div.op1 {
-    width: 5%;
-    display: inline-block;
-    font-size: 2vw;
-    text-align: center;
-    padding: 5vw 0vw 5vw 0vw;
-    min-width:50%;
-    border-radius: 10px;
-    border-right: #fff 1px solid;
-    margin-right: 1%;
-}
 
-div.op2 {
-    width: 5%;
-    display: inline-block;
-    font-size: 2vw;
-    text-align: center;
-    padding: 5vw 0vw 5vw 0vw;
-    min-width:50%;
-    border-radius: 10px;
-}
+
 
 .curso {
     width: 50%;

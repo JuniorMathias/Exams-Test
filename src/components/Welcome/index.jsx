@@ -1,13 +1,15 @@
 import { useContext } from "react";
 import { QuizContext } from "../../contexts/quiz";
 import * as S from './styles';
-
+import NavBar from '../../components/NavBar';
 
 const Welcome = () => {
   const [quizState, dispatch] = useContext(QuizContext);
 
 
   return (
+    <>
+    <NavBar />
     <S.Welcome>
       <S.H2>Hora de colocar em prática seus conhecimentos</S.H2>
       <S.P>Clique no botão abaixo para começar seu teste:</S.P>
@@ -15,6 +17,7 @@ const Welcome = () => {
         Iniciar
       </S.Button>
     </S.Welcome>
+    </>
   );
 };
 

@@ -49,8 +49,8 @@ function HomePage(){
             <S.Table>
               <thead>
               <S.Tr>
-                <S.Th scope="col">Cursos</S.Th>
-                <S.Th scope="col">Notas</S.Th>
+                <S.Th scope="col">Curso</S.Th>
+                <S.Th scope="col">Nota</S.Th>
               </S.Tr>
               </thead>
               <S.Tbody>

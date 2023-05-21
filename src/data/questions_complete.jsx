@@ -6,13 +6,11 @@ const data = [
           question: "Qual tag cria um parágrafo?",
           options: ["<p>", "<h1>", "<text>", "<ul>"],
           answer: "<p>",
-          tip: "É uma tag de uma letra apenas",
         },
         {
           question: "Qual atributo adiciona um link para a tag a?",
           options: ["alt", "href", "src", "link"],
           answer: "href",
-          tip: "Hyperlink Reference",
         },
         {
           question: "As listas não ordenadas tem a tag de:",
@@ -35,59 +33,57 @@ const data = [
       category: "Rede de computadores",
       questions: [
         {
-          question: "Qual regra altera a cor de um elemento?",
-          options: ["color", "background-color", "font-size", "transition"],
-          answer: "color",
-          tip: "Cor em inglês",
+          question: "Qual é o protocolo de transporte usado para transferência de arquivos?",
+          options: ["TCP", "UDP", "HTTP", "FTP"],
+          answer: " FTP",
         },
         {
-          question: "Para aumentar a fonte de um elemento utilizamos:",
-          options: ["font", "text-transform", "font-size", "hover"],
-          answer: "font-size",
+          question: "Qual é o dispositivo de rede que atua na camada física do modelo OSI?",
+          options: ["Roteador", "Switch", "Modem", "Firewall"],
+          answer: "Modem",
         },
         {
-          question: "A posição que deixa um elemento fixo é a:",
-          options: ["static", "absolute", "fixed", "font-size"],
-          answer: "fixed",
+          question: "Qual é o padrão de rede sem fio mais comum?",
+          options: ["Wi-Fi", "Bluetooth", "NFC", "LTE"],
+          answer: "Wi-Fi",
+        },
+        {
+          question: "Qual é o protocolo usado para obter um endereço IP automaticamente?",
+          options: ["DNS", "DHCP", "FTP", "ICMP"],
+          answer: "DHCP",
+        },
+        {
+          question: "Qual é a unidade básica de transmissão de dados em uma rede?",
+          options: ["Pacote", "Segmento", "Quadro", "Bit"],
+          answer: "Bit",
+        },
+        {
+          question: "Qual é o protocolo usado para enviar e-mails?",
+          options: ["SMTP", "HTTP", "POP3", "DHCP"],
+          answer: "SMTP",
+        },
+        {
+          question: "Qual é o dispositivo de rede que conecta diferentes redes em um único segmento de rede?",
+          options: ["Roteador", "Modem", "Switch", "Hub"],
+          answer: "Switch",
+        },
+        {
+          question: "Qual é o protocolo de segurança usado para criptografar a comunicação em uma rede?",
+          options: ["SSL", "TLS", "IPsec", "PPTP"],
+          answer: "TLS",
+        },
+        {
+          question: "Qual é o protocolo usado para resolver nomes de domínio em endereços IP?",
+          options: ["DHCP", "DNS", "FTP", "ICMP"],
+          answer: "DNS",
+        },
+        {
+          question: "Qual é o protocolo de roteamento mais comum na Internet?",
+          options: ["OSPF", "RIP-color", "BGP", "ICMP"],
+          answer: "BGP",
         },
       ],
     },
-    // {
-    //   category: "JavaScript",
-    //   questions: [
-    //     {
-    //       question: "O que é Vanilla JavaScript?",
-    //       options: [
-    //         "JavaScript puro",
-    //         "Uma biblioteca JavaScript",
-    //         "Um framework JavaScript",
-    //         "Um compilador de JavaScript",
-    //       ],
-    //       answer: "JavaScript puro",
-    //     },
-    //     {
-    //       question: "Com qual instrução declaramos uma constante em JavaScript?",
-    //       options: ["const", "let", "var", "define"],
-    //       answer: "const",
-    //     },
-    //     {
-    //       question: "Qual dos tipos de dado a seguir não existe em JavaScript?",
-    //       options: ["string", "number", "boolean", "float"],
-    //       answer: "float",
-    //     },
-    //     {
-    //       question: "Qual dos métodos a seguir seleciona um elemento?",
-    //       options: ["querySelector", "parseInt", "sort", "reduce"],
-    //       answer: "querySelector",
-    //     },
-    //     {
-    //       question:
-    //         "Qual destas propriedades da a quantidade de elementos de um array?",
-    //       options: ["qty", "length", "items", "index"],
-    //       answer: "length",
-    //     },
-    //   ],
-    // },
   ];
   
   export default data;

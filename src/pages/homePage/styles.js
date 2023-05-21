@@ -17,7 +17,8 @@ export const Content = styled.div`
   height: 30%;
   max-width: 750px;
   padding: 0px 30px;
-  border-radius: 5px;
+  border-radius: 10px;
+  background-image: linear-gradient(to right, #2dd36f , #121212);
 `;
 
 export const Table = styled.table`
@@ -43,6 +44,8 @@ export const Tr = styled.tr`
   background-color: #f8f8f8;
   color: #009b89 !important;
   padding: .35em;
+  border-radius: 10px;
+  
 `;
 
 export const Tbody = styled.tbody`
@@ -57,6 +60,7 @@ export const Td = styled.td`
   color: #121212 !important;
   text-transform: uppercase;
   padding: 1em;
+  
 `;
 
 // if the db is blank 

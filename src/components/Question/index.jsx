@@ -37,7 +37,7 @@ const Question = () => {
     return (
         <>
         <S.Question>
-            <S.P>Questão {quizState.currentQuestion + 1} de {quizState.questions.length}  </S.P>
+            <S.Para>Questão {quizState.currentQuestion + 1} de {quizState.questions.length}  </S.Para>
             <S.H2>{currentQuestion.question}  </S.H2>
             <S.OptionsContainer>
                 {currentQuestion.options.map((optionMap) => (

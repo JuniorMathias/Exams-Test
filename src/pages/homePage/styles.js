@@ -20,23 +20,6 @@ export const Content = styled.div`
   border-radius: 5px;
 `;
 
-export const ButtonLogout = styled.button`
-   position: absolute;
-   bottom: 6%;
-   left: 4%;
-   height: 60px;
-   width: 60px;
-   border-radius: 30px;
-   border: 0;
-   font-weight: bold;
-   background-color: rgba(219, 38, 41, 0.35);
-   color: #fafafa;
-   transition: all 0.5s;
-   &:hover {
-    background-color: rgba(219, 38, 41, 1);
-   color: #fff;
-  }
-`;
 export const Table = styled.table`
     margin-top: 1em;
     padding: 0;
@@ -104,10 +87,10 @@ export const Box1 = styled.div`
 export const H2 = styled.h2`
   color: aliceblue;
 `;
-export const PRedes = styled.p`
+export const PRedes = styled.span`
   margin-top: 15%;
 `;
-export const P = styled.p`
+export const Para = styled.p`
   color: #fff;
   font-size: medium;
 `;

@@ -7,7 +7,7 @@ export const Question  = styled.div`
     
 `;
 
-export const P = styled.p`
+export const Para = styled.p`
     margin-bottom: 1rem;
 `;
 

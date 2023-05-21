@@ -13,7 +13,7 @@ const Welcome = () => {
     <S.Welcome>
       <S.ButtonLogout to="/home">Início</S.ButtonLogout>
       <S.H2>Hora de colocar em prática seus conhecimentos</S.H2>
-      <S.P>Clique no botão abaixo para começar seu teste:</S.P>
+      <S.Para>Clique no botão abaixo para começar seu teste:</S.Para>
       <S.Button onClick={() => dispatch({ type: "CHANGE_STAGE" })}>
         Iniciar
       </S.Button>

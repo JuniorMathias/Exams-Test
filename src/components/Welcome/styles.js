@@ -10,7 +10,7 @@ export const H2 = styled.h2`
     margin-bottom: 1rem;
     color: #fff;
 `;
-export const P = styled.p`
+export const Para = styled.p`
     margin-bottom: 1rem;
     color: #fff;
 `;

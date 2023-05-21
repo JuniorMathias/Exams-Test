@@ -32,5 +32,23 @@ export const Button = styled.button`
     border-radius: 2rem;
     border: none;
 `;
-
+export const ButtonLogout = styled(Router)`
+   position: absolute;
+   bottom: 6%;
+   left: 4%;
+   height: 60px;
+   width: 60px;
+   border-radius: 30px;
+   font-weight: bold;
+   background-color: rgba(219, 38, 41, 0.35);
+   text-decoration: none;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   color: #fafafa;
+   transition: all 0.5s;
+   &:hover {
+    background-color: rgba(219, 38, 41, 1);
+  }
+`;
 

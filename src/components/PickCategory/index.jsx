@@ -20,6 +20,7 @@ const PickCategory = () => {
 
   return (
     <S.Category>
+      <S.ButtonLogout to="/home">Início</S.ButtonLogout>
       <S.Form >
       {quizState.questions.map((question) => (
         <S.Button

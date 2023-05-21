@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+import { Link as Router } from 'react-router-dom';
 
 export const Welcome = styled.div`
     text-align: center;
@@ -17,21 +18,24 @@ export const P = styled.p`
 export const H1 = styled.h1`
  
 `;
-export const ButtonLogout = styled.button`
+
+export const ButtonLogout = styled(Router)`
    position: absolute;
    bottom: 6%;
    left: 4%;
    height: 60px;
    width: 60px;
    border-radius: 30px;
-   border: 0;
    font-weight: bold;
    background-color: rgba(219, 38, 41, 0.35);
+   text-decoration: none;
+   display: flex;
+   justify-content: center;
+   align-items: center;
    color: #fafafa;
    transition: all 0.5s;
    &:hover {
     background-color: rgba(219, 38, 41, 1);
-   color: #fff;
   }
 `;
 

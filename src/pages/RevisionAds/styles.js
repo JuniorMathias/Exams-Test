@@ -13,14 +13,31 @@ export const Container = styled.div`
 export const Content = styled.div`
   display: flex;
   justify-content: center;
+  text-align: center;
+  align-items: center;
   width: 100%;
-  height: 40%;
+  height: 50%;
   max-width: 750px;
   padding: 0px 30px;
   border-radius: 10px;
-  background-image: linear-gradient(to right, #2dd36f , #121212);
+  background-image: linear-gradient(to right, #181c2e , #181c2e);
 `;
-
+export const LoginArea = styled.div`
+    display: flex;
+    justify-content: center;
+    background-color: #181c2e;
+    width: 42%;
+    border-radius: 10px;
+`;
+export const MyIcon = styled.img`
+    padding: 20px;
+    width: 150px;
+    height: 130px;
+`;
+export const Para = styled.span`
+    color: #fff;
+    font-size: 17px;
+`;
 export const H2 = styled.h2`
   color: aliceblue;
 `;

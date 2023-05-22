@@ -8,6 +8,7 @@ import Profile from '../pages/Profile';
 import Private from './Private';
 import UpdatePassword from '../pages/UpdatePassword';
 import PageFlow from '../pages/PageFlow';
+import Revision from '../pages/Revision';
 
 function RoutesApp() {
 
@@ -23,6 +24,7 @@ function RoutesApp() {
         <Route exact path="/perfil" element={<Private><Profile /> </Private>} />
         <Route path="/atualizarSenha" element={<Private><UpdatePassword /> </Private>} />
 
+        <Route path="/revisao" element={<Private><Revision /> </Private>} />
         <Route path="/provas" element={<Private><PageFlow /> </Private>} />
 
 

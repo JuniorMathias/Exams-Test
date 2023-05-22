@@ -5,6 +5,7 @@ import avatar from '../../assets/avatar.png';
 import { FiHome, FiUser } from 'react-icons/fi';
 import { ImExit } from 'react-icons/im';
 import { AiOutlineForm } from 'react-icons/ai';
+import { MdOutlineLibraryBooks } from 'react-icons/md';
 
 
 export default function Header(){
@@ -23,6 +24,10 @@ export default function Header(){
         <S.Link to="/home">
             <FiHome color='#fff' size={24} />
             Início
+        </S.Link>
+        <S.Link to="/revisao">
+            <MdOutlineLibraryBooks color='#fff' size={24} />
+            Revisão
         </S.Link>
         <S.Link to="/provas">
             <AiOutlineForm color='#fff' size={24} />

@@ -18,7 +18,7 @@ export const Content = styled.div`
   max-width: 750px;
   padding: 0px 30px;
   border-radius: 10px;
-  background-image: linear-gradient(to right, #2dd36f , #121212);
+  background-image: linear-gradient(to right, #3380d6 , #121212);
 `;
 
 export const Table = styled.table`
@@ -69,7 +69,7 @@ export const Main = styled.main`
 `;
 
 export const ContainerBlank = styled.div`
-  background-image: linear-gradient(to right, #2dd36f , #121212);
+background-image: linear-gradient(to right, #3380d6 , #121212);
   display: flex;
   justify-content: center;
   width: 60%;

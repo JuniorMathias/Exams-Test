@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Link as Router } from 'react-router-dom';
 
+
 export const Container = styled.div`
   display: flex;
   align-items: center;
@@ -11,53 +12,44 @@ export const Container = styled.div`
 `;
 export const Content = styled.div`
   display: flex;
-  align-items: center;
   justify-content: center;
-  flex-direction: column;
+  text-align: center;
+  align-items: center;
   width: 100%;
-  box-shadow: 0 1px 2px #0003;
-  background-image: linear-gradient(to right, #3380d6 , #121212);
-  opacity: 0.3px;
+  height: 50%;
   max-width: 750px;
-  padding: 0px 0px;
-  border-radius: 5px;
+  padding: 0px 30px;
+  border-radius: 10px;
+  background-image: linear-gradient(to right, #3380d6 , #121212);
 `;
-
 export const LoginArea = styled.div`
     display: flex;
     justify-content: center;
     background-color: #181c2e;
-    width: 100%;
+    width: 42%;
+    border-radius: 10px;
 `;
 export const MyIcon = styled.img`
     padding: 20px;
     width: 150px;
     height: 130px;
 `;
-export const Title = styled.h1`
-  font-size: 48px;
-  margin-bottom: 8px;
-  color: #fff;
+export const Para = styled.span`
+    color: #fff;
+    font-size: 17px;
+    font-weight: bold;
 `;
-export const Span = styled.span`
-  margin-bottom: 28px;
-  color: #fff;
+export const Texto = styled.span`
+    color: #cecece;
+    font-size: 17px;
 `;
-
+export const H2 = styled.h2`
+  color: aliceblue;
+`;
 export const Form = styled.form`
-  width: 90%;
+  width: 100%;
   display: flex;
-  justify-content: space-around;
-`;
-
-
-export const Button = styled.button`
-  height: 36px;
-  border: 0;
-  border-radius: 4px;
-  background-color: #3366ff;
-  color: #fff;
-  font-size: 18px;
+  justify-content: space-between;
 `;
 
 export const Link = styled(Router)`
@@ -66,3 +58,11 @@ export const Link = styled(Router)`
   margin: 14px 0;
   font-size: 14px;
 `;
+
+export const Span = styled.span`
+  margin-bottom: 28px;
+  color: #fff;
+`;
+
+
+

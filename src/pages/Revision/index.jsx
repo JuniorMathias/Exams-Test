@@ -15,10 +15,10 @@ const Revision = () => {
         <S.Content className='content'>
             <S.Form >
                     <S.Span style={{alignItems: 'center',flexDirection: 'column', display:'flex'}}>
-                        <S.Link to="/provas" >
+                        <S.Link to="/revisaoads" >
                         Análise e Desenvolvimento de Sistemas
                         </S.Link>
-                        <S.Link to="/provas" >
+                        <S.Link to="/revisaoads" >
                         <img src={ads} width={300} height={300} alt="profile pic" className='profilePic'/>
                         </S.Link>
                     </S.Span>   

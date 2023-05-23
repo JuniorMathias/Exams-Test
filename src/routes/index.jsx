@@ -9,7 +9,8 @@ import Private from './Private';
 import UpdatePassword from '../pages/UpdatePassword';
 import PageFlow from '../pages/PageFlow';
 import Revision from '../pages/Revision';
-import RevisionAds from '../pages/RevisionAds';
+import RevisionRedes from '../pages/RevisionRedes';
+import RevisionAds from '../pages/RevisionRedes';
 
 function RoutesApp() {
 
@@ -26,6 +27,7 @@ function RoutesApp() {
         <Route path="/atualizarSenha" element={<Private><UpdatePassword /> </Private>} />
 
         <Route path="/revisao" element={<Private><Revision /> </Private>} />
+        <Route path="/revisaoredes" element={<Private><RevisionRedes /> </Private>} />
         <Route path="/revisaoads" element={<Private><RevisionAds /> </Private>} />
         <Route path="/provas" element={<Private><PageFlow /> </Private>} />
 

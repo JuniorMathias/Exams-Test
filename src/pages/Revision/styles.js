@@ -18,7 +18,7 @@ export const Content = styled.div`
   max-width: 750px;
   padding: 0px 30px;
   border-radius: 10px;
-  background-image: linear-gradient(to right, #2dd36f , #121212);
+  background-image: linear-gradient(to right, #3380d6 , #121212);
 `;
 
 export const H2 = styled.h2`

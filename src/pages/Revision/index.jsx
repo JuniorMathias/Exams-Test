@@ -23,10 +23,10 @@ const Revision = () => {
                         </S.Link>
                     </S.Span>   
                     <S.Span style={{alignItems: 'center',flexDirection: 'column', display:'flex'}}>
-                    <S.Link to="/provas">
+                    <S.Link to="/revisaoredes">
                         Rede de computadores
                     </S.Link>
-                    <S.Link to="/provas" >
+                    <S.Link to="/revisaoredes" >
                         <img src={redes} width={300} height={300} alt="profile pic" className='profilePic'/>
                     </S.Link>
                     </S.Span>

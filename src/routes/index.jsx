@@ -10,7 +10,7 @@ import UpdatePassword from '../pages/UpdatePassword';
 import PageFlow from '../pages/PageFlow';
 import Revision from '../pages/Revision';
 import RevisionRedes from '../pages/RevisionRedes';
-import RevisionAds from '../pages/RevisionRedes';
+import RevisionAds from '../pages/RevisionAds';
 
 function RoutesApp() {
 

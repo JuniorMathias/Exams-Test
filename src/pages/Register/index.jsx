@@ -2,7 +2,7 @@ import * as S from './styles';
 import { useState, useContext } from 'react';
 import { AuthContext } from '../../contexts/auth';
 import logo from '../../assets/logo.png';
-import { IsPasswordValid } from '/home/jorgejunior/Área de Trabalho/exam-system/src/helpers/PasswordHelper.jsx';
+import { IsPasswordValid } from '../../helpers/PasswordHelper.jsx';
 
 
 

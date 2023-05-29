@@ -137,7 +137,7 @@ async function logout(){
     await sendPasswordResetEmail(auth, email)
     .then(async (value) => {
       setLoadingAuth(false)
-      toast.success("Email enviado")
+      toast.success("Verifique seu email!")
     })
     .catch((err) => {
       setErrorRecover("Email não encontrado");

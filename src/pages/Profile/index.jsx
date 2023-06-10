@@ -35,7 +35,7 @@ function handleFile(e){
       //creating a URl from the main target
       setAvatarUrl(URL.createObjectURL(e.target.files[0]))
     }else {
-      toast.error("Only PNG and JPEG images are supported");
+      toast.error("A imagem deve ser em formato JPEG!");
       setImageAvatar(null);
       return null;
     }
